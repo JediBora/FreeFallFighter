@@ -635,7 +635,7 @@ MonoBehaviour:
   rayCount: 8
   groundAccelerate: 1
   airAccelerate: 4
-  gravityAccelerate: 0.1
+  gravityAccelerate: 0
   wallSlideAccelerate: 20
   jumpSpeed: 7
   wallJumpSpeed: 7
