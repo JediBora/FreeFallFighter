@@ -39,12 +39,21 @@ public class MainMenuUI : MonoBehaviour
         Application.Quit();
     }
 
+    public void Back()
+    {
+        SceneManager.LoadScene("Main Menu UI Layout");
+    }
+
+    public void CharacterSelect()
+    {
+        SceneManager.LoadScene("Character Selection");
+    }
 
     public void Timer()
     {
         if (TimerOn == true) {
             timeLeft -= Time.deltaTime;
-            startText.text = (timeLeft).ToString("0");
+            startText.text = (timeLeft).ToString("0");  
             if (timeLeft < 0)
             {
                 TimerOn = false;
