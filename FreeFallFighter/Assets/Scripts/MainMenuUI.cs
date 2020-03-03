@@ -10,17 +10,17 @@ public class MainMenuUI : MonoBehaviour
     public float timeLeft = 3.0f;
     public Text startText; // used for showing countdown from 3, 2, 1 
     public float Player1MeterNumber = 0.2f;
+    public float sliderNumber = 0f;
     public Scrollbar Player1Meter;
+    public Slider sliderProgress;
+    public bool TimerOn = true;
 
     void Update()
     {
-        timeLeft -= Time.deltaTime;
-        startText.text = (timeLeft).ToString("0");
-        if (timeLeft < 0)
-        {
-            //Do something
-            
-        }
+        Timer();
+
+        sliderNumber += 1f;
+        sliderProgress.GetComponent<Slider>().value = timeLeft;
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -37,6 +37,19 @@ public class MainMenuUI : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+
+    public void Timer()
+    {
+        if (TimerOn == true) {
+            timeLeft -= Time.deltaTime;
+            startText.text = (timeLeft).ToString("0");
+            if (timeLeft < 0)
+            {
+                TimerOn = false;
+            }
+        }
     }
 
 }
