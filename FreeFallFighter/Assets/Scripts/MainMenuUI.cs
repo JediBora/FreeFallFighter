@@ -9,7 +9,7 @@ public class MainMenuUI : MonoBehaviour
 
     public float timeLeft = 3.0f;
     public Text startText; // used for showing countdown from 3, 2, 1 
-    public float Player1MeterNumber = 1f;
+    public float Player1MeterNumber = 0.2f;
     public Scrollbar Player1Meter;
 
     void Update()
@@ -22,8 +22,11 @@ public class MainMenuUI : MonoBehaviour
             
         }
 
-        Player1Meter.GetComponent<Scrollbar>().size = Player1MeterNumber + 0.1f;
-
+        if (Input.GetButtonDown("Jump"))
+        {
+            Player1MeterNumber += 0.1f;
+            Player1Meter.GetComponent<Scrollbar>().size = Player1MeterNumber;
+        }
     }
 
     public void NextScene()
