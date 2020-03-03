@@ -9,6 +9,8 @@ public class MainMenuUI : MonoBehaviour
 
     public float timeLeft = 3.0f;
     public Text startText; // used for showing countdown from 3, 2, 1 
+    public float Player1MeterNumber = 1f;
+    public Scrollbar Player1Meter;
 
     void Update()
     {
@@ -16,8 +18,12 @@ public class MainMenuUI : MonoBehaviour
         startText.text = (timeLeft).ToString("0");
         if (timeLeft < 0)
         {
-            //Do something useful or Load a new game scene depending on your use-case
+            //Do something
+            
         }
+
+        Player1Meter.GetComponent<Scrollbar>().size = Player1MeterNumber + 0.1f;
+
     }
 
     public void NextScene()
