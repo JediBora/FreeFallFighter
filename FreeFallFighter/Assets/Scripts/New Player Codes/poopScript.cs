@@ -4,46 +4,54 @@ using UnityEngine;
 
 public class poopScript : MonoBehaviour
 {
-    Player1Script p1Script;
-    Player2Script p2Script;
+    TestPlayerMovement playerScript1;
+    TestPlayerMovement playerScript2;
+    public GameObject player1;
+    public GameObject player2;
+    //Player1Script p1Script;
+    //Player2Script p2Script;
 
-    private void Update()
-    {
-        //player1 = GameObject.FindWithTag("Player1");
-        //player2 = GameObject.FindWithTag("Player2");
 
-    }
+
+
     private void Awake()
     {
-        p1Script = GameObject.FindGameObjectWithTag("Player1").GetComponent<Player1Script>();
-        p2Script = GameObject.FindGameObjectWithTag("Player2").GetComponent<Player2Script>();
+        playerScript1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<TestPlayerMovement>();
+        playerScript2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<TestPlayerMovement>();
+        //p1Script = GameObject.FindGameObjectWithTag("Player1").GetComponent<Player1Script>();
+        //p2Script = GameObject.FindGameObjectWithTag("Player2").GetComponent<Player2Script>();
     }
+    private void Update()
+    {
 
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player1")
         {
-            p1Script.speed = 0;
-            Invoke("DelayPlayer1", 3);
+            playerScript1.stunned = true;
+            Invoke("DelayPlayer1", 1);
 
 
         }
         if (collision.gameObject.tag == "Player2")
         {
-            p2Script.speed = 0;
-            Invoke("DelayPlayer2", 3);
+            playerScript2.stunned = true;
+            Invoke("DelayPlayer2", 1);
         }
     }
     void DelayPlayer1()
     {
 
-        p1Script.speed = 10;
+        playerScript1.stunned = false;
+
 
 
     }
     void DelayPlayer2()
     {
-        p2Script.speed = 10;
+        playerScript2.stunned = false;
+
     }
 }
 

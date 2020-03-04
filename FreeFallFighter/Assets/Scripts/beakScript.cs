@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class beakScript : MonoBehaviour
 {
-    public Player1Script p1script;
+    public TestPlayerMovement p1script;
+    public TestPlayerMovement p2script;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,13 @@ public class beakScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player2")
         {
+           
             p1script.peckActive = true;
+
+        }
+        if (collision.gameObject.tag == "Player1")
+        {
+            p2script.peckActive = true;
 
         }
     }
@@ -29,6 +36,11 @@ public class beakScript : MonoBehaviour
         if (collision.gameObject.tag == "Player2")
         {
             p1script.peckActive = false;
+
+        }
+        if (collision.gameObject.tag == "Player1")
+        {
+            p2script.peckActive = false;
 
         }
     }

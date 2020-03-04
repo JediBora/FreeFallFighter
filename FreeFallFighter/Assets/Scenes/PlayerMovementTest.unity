@@ -279,12 +279,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7439c7346d42094e87bb0a72c1bbdc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerNum: 1
   FloatDirection: {x: 0, y: 1}
   FloatSpeed: 1.5
   AccelerationTime: 1
   DecelerationTime: 3
   MaxSpeed: 3
   MinSpeed: 1
+  poop: {fileID: 0}
+  parachute: {fileID: 0}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
+  dashing: 0
+  peckActive: 0
+  dashSpeed: 2
+  poopChaseSpeed: 4
+  timer: 4
+  player1SpriteRenderer: {fileID: 0}
+  player2SpriteRenderer: {fileID: 0}
+  greyColor: {r: 0, g: 0, b: 0, a: 0}
+  player1Collider: {fileID: 0}
+  player2Collider: {fileID: 0}
 --- !u!1 &391675980 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8962610863134654348, guid: 2e29d2ad558ec4340926e988ef183e90,
@@ -303,12 +318,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7439c7346d42094e87bb0a72c1bbdc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerNum: 0
   FloatDirection: {x: 0, y: 1}
   FloatSpeed: 1
   AccelerationTime: 1
   DecelerationTime: 1
   MaxSpeed: 1
   MinSpeed: 0
+  poop: {fileID: 0}
+  parachute: {fileID: 0}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
+  dashing: 0
+  peckActive: 0
+  dashSpeed: 2
+  poopChaseSpeed: 4
+  timer: 4
+  player1SpriteRenderer: {fileID: 0}
+  player2SpriteRenderer: {fileID: 0}
+  greyColor: {r: 0, g: 0, b: 0, a: 0}
+  player1Collider: {fileID: 0}
+  player2Collider: {fileID: 0}
 --- !u!1 &485990467
 GameObject:
   m_ObjectHideFlags: 0
