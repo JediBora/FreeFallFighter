@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class TestPlayerMovement : MonoBehaviour
 {
+    [Range(1, 2)]
+    public int PlayerNum;
+
     [SerializeField]
     private Vector2 FloatDirection = new Vector2(0f, 1f);
 
@@ -48,7 +51,18 @@ public class TestPlayerMovement : MonoBehaviour
 
     private void CollectInput()
     {
-        m_directionalInput = new Vector2(Input.GetAxis("Player1Movement"), Input.GetAxis("Player1Upwards"));
+
+        if (PlayerNum == 1)
+        {
+            m_directionalInput = new Vector2(Input.GetAxis("Player1Movement"), Input.GetAxis("Player1Upwards"));
+        }
+
+        if (PlayerNum == 2)
+        {
+            m_directionalInput = new Vector2(Input.GetAxis("Player2Movement"), Input.GetAxis("Player2Upwards"));
+        }
+
+        
 
         // PECK
         // WING ATTACK
