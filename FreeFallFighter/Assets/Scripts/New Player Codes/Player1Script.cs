@@ -21,15 +21,28 @@ public class Player1Script : MonoBehaviour
     public GameObject parachute;
     GameObject poops;
     public GameObject otherPlayer;
-    public GameObject poopSpawn;
-    public float chaseSpeed = 4;
+    public GameObject otherPlayerSprite;
+    public GameObject playerSprite;
+    public float poopChaseSpeed = 4;
     public bool deployPoop = false;
+    public bool dashing = false;
+    public float dashSpeed;
+    private Vector3 startPos;
+    private Vector3 endPos;
+    SpriteRenderer otherSpriteRenderer;
+    SpriteRenderer mySpriteRenderer;
+    Rigidbody2D otherRb;
+    public bool peckActive = false;
+    public Color greyColor;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         leftVector = new Vector2(-1, 0);
         rightVector = new Vector2(1, 0);
+        otherSpriteRenderer = otherPlayerSprite.GetComponent<SpriteRenderer>();
+        mySpriteRenderer = playerSprite.GetComponent<SpriteRenderer>(); 
+        otherRb = otherPlayer.GetComponent<Rigidbody2D>();
     }
     private void Update()
     {
@@ -65,45 +78,64 @@ public class Player1Script : MonoBehaviour
         }
     }
 
-    public void Poop()  //player stuns the other player; disable the script; add an Invoke on the Update
+    public void Poop()  //done
     {
+
         if (Input.GetButtonDown("Player1Poop"))
         {
-            deployPoop = true;
-            poops = Instantiate(poop, transform.position, Quaternion.identity) as GameObject;
+            poops = Instantiate(poop, transform.position, Quaternion.identity);
             Destroy(poops, 6f);
-            deployPoop = false;
+
 
         }
-        poops.transform.position = Vector2.MoveTowards(poops.transform.position, otherPlayer.transform.position, chaseSpeed * Time.deltaTime);
+        if (poops != null)
+        {
+            poops.transform.position = Vector2.MoveTowards(poops.transform.position, otherPlayer.transform.position, poopChaseSpeed * Time.deltaTime);
+
+        }
+
+
     }
 
 
 
     public void Peck()  //player attacks the other player
     {
-        if (Input.GetButton("Player1Peck"))
+        if (Input.GetButton("Player1Peck") && peckActive)
         {
-            collider.isTrigger = true;
-
+            otherSpriteRenderer.color = Color.red;
+            otherRb.AddForce(transform.right * 1);
+            Invoke("DelayColor", 3);
         }
 
     }
+    void DelayColor()
+    {
+        otherSpriteRenderer.color = greyColor;
 
+
+    }
     public void WingAttack()  //done
     {
-
-        if (Input.GetButtonDown("Player1WingAttack"))
+        
+        if (Input.GetButton("Player1WingAttack"))
         {
             collider.isTrigger = true;
+            mySpriteRenderer.color = Color.white;
+            startPos = transform.position;
             if (facingRight)
             {
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(1, transform.position.y), 30);
+                endPos = transform.position + (Vector3.right);
             }
             else
             {
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(-1, transform.position.y), 30);
+                endPos = transform.position + (Vector3.left);
             }
+
+
+            transform.position = Vector3.MoveTowards(transform.position, endPos, dashSpeed);
+
+
 
             Invoke("ChangeCollider", timer);
 
@@ -114,7 +146,7 @@ public class Player1Script : MonoBehaviour
     void ChangeCollider()
     {
         collider.isTrigger = false;
-
+        mySpriteRenderer.color = greyColor;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -128,11 +160,5 @@ public class Player1Script : MonoBehaviour
 
 
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player2")
-        {
 
-        }
-    }
 }

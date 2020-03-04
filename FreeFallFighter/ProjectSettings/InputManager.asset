@@ -361,10 +361,10 @@ InputManager:
     m_Name: Player2WingAttack
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: a
-    positiveButton: a
-    altNegativeButton: 
-    altPositiveButton: 
+    negativeButton: j
+    positiveButton: j
+    altNegativeButton: j
+    altPositiveButton: j
     gravity: 3
     dead: 0.001
     sensitivity: 3
@@ -393,10 +393,10 @@ InputManager:
     m_Name: Player2Poop
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: s
-    positiveButton: s
-    altNegativeButton: 
-    altPositiveButton: 
+    negativeButton: k
+    positiveButton: k
+    altNegativeButton: k
+    altPositiveButton: k
     gravity: 3
     dead: 0.001
     sensitivity: 3
@@ -409,10 +409,10 @@ InputManager:
     m_Name: Player1Peck
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: 
-    altNegativeButton: 
-    altPositiveButton: 
+    negativeButton: y
+    positiveButton: y
+    altNegativeButton: y
+    altPositiveButton: y
     gravity: 3
     dead: 0.001
     sensitivity: 3
@@ -425,10 +425,10 @@ InputManager:
     m_Name: Player2Peck
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: w
-    positiveButton: w
-    altNegativeButton: 
-    altPositiveButton: 
+    negativeButton: h
+    positiveButton: h
+    altNegativeButton: h
+    altPositiveButton: h
     gravity: 3
     dead: 0.001
     sensitivity: 3

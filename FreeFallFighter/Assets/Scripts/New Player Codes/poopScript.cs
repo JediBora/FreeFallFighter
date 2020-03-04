@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class poopScript : MonoBehaviour
 {
-    GameObject player1;
-    GameObject player2;
+    Player1Script p1Script;
+    Player2Script p2Script;
 
     private void Update()
     {
@@ -13,33 +13,37 @@ public class poopScript : MonoBehaviour
         //player2 = GameObject.FindWithTag("Player2");
 
     }
+    private void Awake()
+    {
+        p1Script = GameObject.FindGameObjectWithTag("Player1").GetComponent<Player1Script>();
+        p2Script = GameObject.FindGameObjectWithTag("Player2").GetComponent<Player2Script>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player1")
         {
-            GameObject.FindGameObjectWithTag("Player1").GetComponent<Player1Script>().enabled = false;
-            Invoke("DelayPlayer1", 2);
+            p1Script.speed = 0;
+            Invoke("DelayPlayer1", 3);
 
 
         }
         if (collision.gameObject.tag == "Player2")
         {
-            GameObject.FindGameObjectWithTag("Player2").GetComponent<Player2Script>().enabled = false;
-            Invoke("DelayPlayer2", 2);
+            p2Script.speed = 0;
+            Invoke("DelayPlayer2", 3);
         }
     }
     void DelayPlayer1()
     {
-        GameObject.FindGameObjectWithTag("Player1").GetComponent<Player1Script>().enabled = true;
 
+        p1Script.speed = 10;
 
 
     }
     void DelayPlayer2()
     {
-        GameObject.FindGameObjectWithTag("Player2").GetComponent<Player2Script>().enabled = true;
-        print("test");
+        p2Script.speed = 10;
     }
 }
 
