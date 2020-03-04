@@ -7,7 +7,7 @@ public class Player1Script : MonoBehaviour
 
     public float speed;
     Rigidbody2D rb;
-    Vector2 movement;
+    public Vector2 movement;
     float move;
     public Collider2D collider;
     [Range(0, 1f)] [SerializeField] private float m_MovementSmoothing = .05f;

@@ -6,7 +6,7 @@ public class PlayerAnimationController : MonoBehaviour
 {
 
     private Animator Panim;
-    private PlayerParams Param;
+    private Player1Script Param;
     private PlayerMovement Pmove;
     private float MoveX;
     private float MoveY;
@@ -14,13 +14,13 @@ public class PlayerAnimationController : MonoBehaviour
     void Start()
     {
         Panim = gameObject.GetComponentInChildren<Animator>();
-        Param = gameObject.GetComponent<PlayerParams>();
+        Param = gameObject.GetComponent<Player1Script>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        MoveX = Input.GetAxisRaw(Param.MovementAxis);
+        //MoveX = Input;
         if (MoveX < 0)
         {
             Panim.SetInteger("ValX", 1);
