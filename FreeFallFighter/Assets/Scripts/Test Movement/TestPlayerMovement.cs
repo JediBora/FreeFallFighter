@@ -103,6 +103,7 @@ public class TestPlayerMovement : MonoBehaviour
     private void CollectInput()
     {
 
+
         if (PlayerNum == 1)
         {
             m_directionalInput = new Vector2(Input.GetAxis("Player1Movement"), Input.GetAxis("Player1Upwards"));
