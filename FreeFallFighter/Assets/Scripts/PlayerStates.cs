@@ -14,7 +14,9 @@ public class PlayerStates : MonoBehaviour {
 	public static bool onJumpbleWall = false;
 
 	public static bool moveRight = false;
+    public static bool moveUp = false;
 	public static bool turnRight = false;
+    public static bool turnUp = false;
 	public static bool isMoving = false;
 
 	public static Vector2 direction;
