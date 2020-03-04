@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8962610862828310497}
   - component: {fileID: 8962610862828310496}
+  - component: {fileID: 984244680}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -25,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8962610862828310498}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0015, y: 0.0098, z: 0}
-  m_LocalScale: {x: 6.5041137, y: 6.4421406, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 8962610863134654384}
   m_RootOrder: 4
@@ -69,8 +70,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.6698113, g: 0.6413759, b: 0.6413759, a: 1}
+  m_Sprite: {fileID: 7162828683701742954, guid: 2a56be1d322efaf40892e0a59430732b,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -80,6 +82,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &984244680
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8962610862828310498}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 63f7f60cc14986941a862dfe65f51ea0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8962610863134654348
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,8 +113,9 @@ GameObject:
   - component: {fileID: 8962610863134654385}
   - component: {fileID: 8962610863134654386}
   - component: {fileID: 8962610863134654387}
+  - component: {fileID: 315235710}
   m_Layer: 0
-  m_Name: Player 2
+  m_Name: Player 2 w Anim
   m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,7 +128,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8962610863134654348}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.94, y: 3.49, z: -0.14122531}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -193,7 +215,20 @@ MonoBehaviour:
   dashing: 0
   dashSpeed: 0.25
   peckActive: 0
-  greyColor: {r: 0.67058825, g: 0.6431373, b: 0.6431373, a: 1}
+  greyColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &315235710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8962610863134654348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ffc080385bf4c4985bc96efdcc09e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerNum: 2
 --- !u!1 &8962610863916325681
 GameObject:
   m_ObjectHideFlags: 0
