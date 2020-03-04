@@ -37,10 +37,13 @@ public class PlayerParams : MonoBehaviour {
 	
 	public float maxFallSpeed = 25f;
 	public float wallFallSpeed = 2f;
+  
 
 	[Header("Input")]
 	public string MovementAxis;
+    public string UpwardAxis;
 	public string JumpAxis;
+    
 
 	public void DisablePlayer (){
 		disable = true;
