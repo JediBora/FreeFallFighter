@@ -41,6 +41,11 @@ public class PlayerAnimationController : MonoBehaviour
             {
                 PeckSet();
             }
+
+            if (Input.GetButton("Player1WingAttack"))
+            {
+                DashSet();
+            }
         }
 
         if (PlayerNum == 2)
@@ -49,6 +54,11 @@ public class PlayerAnimationController : MonoBehaviour
             if (Input.GetButton("Player2Peck"))
             {
                 PeckSet();
+            }
+
+            if (Input.GetButton("Player2WingAttack"))
+            {
+                DashSet();
             }
         }
 
@@ -108,5 +118,10 @@ public class PlayerAnimationController : MonoBehaviour
     void PeckSet()
     {
         Panim.SetTrigger("PeckTrigger");
+    }
+
+    void DashSet()
+    {
+        Panim.SetTrigger("DashTrigger");
     }
 }

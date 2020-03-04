@@ -76,7 +76,7 @@ public class TestPlayerMovement : MonoBehaviour
     //Rigidbodies
     public Rigidbody2D player1rb;
     public Rigidbody2D player2rb;
-
+    private bool CanDash = true;
     public bool stunned = false;
     //public bool stunned = false;
     private int ValX = 0;
@@ -234,7 +234,7 @@ public class TestPlayerMovement : MonoBehaviour
 
 
                 player1.transform.position = Vector3.MoveTowards(player1.transform.position, endPos, dashSpeed);
-
+                
 
 
                 Invoke("ChangeCollider1", timer);
@@ -271,7 +271,7 @@ public class TestPlayerMovement : MonoBehaviour
 
 
                 player2.transform.position = Vector3.MoveTowards(player2.transform.position, endPos, dashSpeed);
-
+                
 
 
                 Invoke("ChangeCollider2", timer);
@@ -286,11 +286,13 @@ public class TestPlayerMovement : MonoBehaviour
     {
         player1Collider.isTrigger = false;
         player1SpriteRenderer.color = greyColor;
+        
     }
     void ChangeCollider2()
     {
         player2Collider.isTrigger = false;
         player2SpriteRenderer.color = greyColor;
+        
     }
 
 

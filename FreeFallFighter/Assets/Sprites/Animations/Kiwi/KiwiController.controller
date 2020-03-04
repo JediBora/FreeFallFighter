@@ -41,19 +41,19 @@ AnimatorStateMachine:
     m_Position: {x: 650, y: 290, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6641560985176698631}
-    m_Position: {x: 920, y: 180, z: 0}
+    m_Position: {x: 870, y: 180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3427507826497589385}
-    m_Position: {x: 370, y: 180, z: 0}
+    m_Position: {x: 430, y: 180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1399164858722098978}
     m_Position: {x: 650, y: 70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5136420448946220562}
-    m_Position: {x: 920, y: 110, z: 0}
+    m_Position: {x: 990, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7378768454490007257}
-    m_Position: {x: 370, y: 110, z: 0}
+    m_Position: {x: 310, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1530010862656795311}
     m_Position: {x: 770, y: 0, z: 0}
@@ -68,23 +68,23 @@ AnimatorStateMachine:
     m_Position: {x: 540, y: 370, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8132610595864162451}
-    m_Position: {x: 370, y: 250, z: 0}
+    m_Position: {x: 310, y: 250, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -237787730452981590}
-    m_Position: {x: 920, y: 250, z: 0}
+    m_Position: {x: 990, y: 250, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5725367896610926026}
     m_Position: {x: 540, y: 0, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
+  - {fileID: -1320669308861220226}
+  - {fileID: -4837360661568408224}
+  - {fileID: -687805678251288577}
+  - {fileID: 6743450111620532497}
   - {fileID: 6582519587616388755}
   - {fileID: 9042449080253110100}
   - {fileID: -2957004695792879011}
   - {fileID: 9105153557115665914}
-  - {fileID: 6743450111620532497}
-  - {fileID: -687805678251288577}
-  - {fileID: -4837360661568408224}
-  - {fileID: -1320669308861220226}
   - {fileID: -1768740088499832916}
   - {fileID: -5115484311521979623}
   - {fileID: 7095865042949872544}
@@ -319,7 +319,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0.75
   m_HasExitTime: 0
@@ -519,7 +519,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0.75
   m_HasExitTime: 0
@@ -547,7 +547,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0.75
   m_HasExitTime: 0
@@ -596,37 +596,37 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: ValY
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: DashTrigger
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: PeckTrigger
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: FaceH
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: FaceV
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -973,7 +973,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0.75
   m_HasExitTime: 0
