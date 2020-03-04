@@ -23,43 +23,45 @@ public class BackgroundScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        if (!skyDone)
-        {
+        //timer += Time.deltaTime;
+        //if (!skyDone)
+        //{
             float newPos = Mathf.Repeat(Time.time * scrollSpeed, lengthOfRepeat);
             sky.transform.position = startPos + Vector2.up * newPos;
-           
-        }
-        
-        if (timer >= 6)
-        {
-            skyDone = true;
-            sky.SetActive(false);
-            cave.SetActive(true);
 
-        }
-        if (!caveDone)
-        {
-            float newPos = Mathf.Repeat(Time.time * scrollSpeed, lengthOfRepeat);
-            cave.transform.position = startPos + Vector2.up * newPos;
-            
-        }
-        if (timer >= 12)
-        {
-            caveDone = true;
-            cave.SetActive(false);
-            deepCave.SetActive(true);
-        }
-        if (!deepCaveDone)
-        {
-            float newPos = Mathf.Repeat(Time.time * scrollSpeed, lengthOfRepeat);
-            deepCave.transform.position = startPos + Vector2.up * newPos;
+        //}
+        /*  
+          if (timer >= 6)
+          {
+              skyDone = true;
+              sky.SetActive(false);
+              cave.SetActive(true);
 
-        }
-        if (timer >= 18)
-        {
-            //deepCaveDone = true;
-            //deepCave.SetActive(false);
-        }
+          }
+          if (!caveDone)
+          {
+              float newPos = Mathf.Repeat(Time.time * scrollSpeed, lengthOfRepeat);
+              cave.transform.position = startPos + Vector2.up * newPos;
+
+          }
+          if (timer >= 12)
+          {
+              caveDone = true;
+              cave.SetActive(false);
+              deepCave.SetActive(true);
+          }
+          if (!deepCaveDone)
+          {
+              float newPos = Mathf.Repeat(Time.time * scrollSpeed, lengthOfRepeat);
+              deepCave.transform.position = startPos + Vector2.up * newPos;
+
+          }
+          if (timer >= 18)
+          {
+              //deepCaveDone = true;
+              //deepCave.SetActive(false);
+          }
+          */
     }
+
 }
