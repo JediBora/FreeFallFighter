@@ -12,9 +12,14 @@ public class ParachuteController : MonoBehaviour
     private float MaxSpeed = 1;
     [SerializeField]
     private float MinSpeed = 0.5f;
+    [SerializeField]
+    private float AddedLaunchSpeed = 1f;
     
     [SerializeField]
     private float PositionResetRange = 0.1f;
+    [SerializeField]
+    private float PositionOffsetWhileCollected = 1f;
+
 
     //[SerializeField]
     //private float Speed = 1.0f;
@@ -28,11 +33,14 @@ public class ParachuteController : MonoBehaviour
     [SerializeField]
     private float ScreenSizeY = 4.3f;
 
+    public GameObject ButtonMasherObject;
+
+    private GameObject m_playerWhoCollected;
     private Rigidbody2D m_parachuteRigidbody2D;
     private SpriteRenderer m_spriteRenderer;
 
     private float m_initialVelocity;
-    private float m_finalVelocity;
+    private float m_finalVelocity;   
 
     private Vector2 m_parachuteToNextPosition;
     private Vector2 m_nextPosition;
@@ -126,9 +134,10 @@ public class ParachuteController : MonoBehaviour
         }
         else
         {
-            //Debug.Log("Parachute Collected");
+            transform.position = new Vector2(m_playerWhoCollected.transform.position.x, m_playerWhoCollected.transform.position.y + PositionOffsetWhileCollected);
+
+            LaunchIfLost();
         }
-        
 
         // First method, movement looks like its being remote controlled
         //m_parachuteRigidbody2D.position = Vector3.MoveTowards(m_parachuteRigidbody2D.position, m_nextPosition, Agility);
@@ -145,10 +154,27 @@ public class ParachuteController : MonoBehaviour
         //transform.Rotate(0, 0, (RotateSpeedInDegrees * Time.deltaTime) * directionOfRotation, Space.Self);
     }
 
+    // Called in Movement();
+    private void LaunchIfLost()
+    {
+        if (ButtonMasherObject.GetComponent<ButtonMasher>().WinningPlayer != null)
+        {
+            // Set a new position
+            m_nextPosition = new Vector3(Random.Range(-ScreenSizeX, ScreenSizeX), Random.Range(-ScreenSizeY, ScreenSizeY));
+
+            // Increase the Speed, Decrease AccelerationTime so that object moves away faster
+            MaxSpeed += AddedLaunchSpeed;
+
+            // Set to false so that Movement returns
+            m_collected = false;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player1" || other.tag == "Player2")
         {
+            m_playerWhoCollected = other.gameObject;
             m_spriteRenderer.color = Color.white;
             m_collected = true;
         }

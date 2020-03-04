@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class ButtonMasher : MonoBehaviour
 {
+    public GameObject WinningPlayer;
+    public GameObject Player01;
+    public GameObject Player02;
+
     [SerializeField]
     private Slider Player01Gauge;
     [SerializeField]
@@ -22,6 +26,7 @@ public class ButtonMasher : MonoBehaviour
 
     void Start()
     {
+        WinningPlayer = null;
         Player01Gauge.value = 0f;
         Player01Gauge.value = 0f;
     }
@@ -30,6 +35,7 @@ public class ButtonMasher : MonoBehaviour
     {
         MashInputCollector();
         UpdateUIGauge();
+        CheckForWin();
     }
 
     private void UpdateUIGauge()
@@ -65,19 +71,20 @@ public class ButtonMasher : MonoBehaviour
         }
     }
 
-    private void CheckForWin()
+    public void CheckForWin()
     {
         if (Player01Gauge.value == 1f)
         {
-            //Player 01 Wins
+            WinningPlayer = Player01;
         }
         else if (Player02Gauge.value == 1f)
         {
-            //Player 2 Wins
+            WinningPlayer = Player02;
         }
         else
         {
-
+            WinningPlayer = null;
         }
+        Debug.Log($"{WinningPlayer} Wins");
     }
 }
