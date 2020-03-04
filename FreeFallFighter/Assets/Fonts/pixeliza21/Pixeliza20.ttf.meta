@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: f3fb16bcc8ae4d34c884bf01db3f547d
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Pixeliza20
+  fontNames:
+  - Pixeliza20
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: ac9c7d97565a0b94caccfb1e90d7c183, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
