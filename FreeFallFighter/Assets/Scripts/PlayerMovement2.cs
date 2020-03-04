@@ -1,10 +1,10 @@
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
 
-[RequireComponent(typeof(PlayerParams))]
-public class PlayerMovement : MonoBehaviour
+[RequireComponent(typeof(PlayerParams2))]
+public class PlayerMovement2 : MonoBehaviour
 {
-
     //Ray stuffs
     private RaycastHit2D hit;
 
@@ -33,8 +33,8 @@ public class PlayerMovement : MonoBehaviour
     private bool canJump = true;
 
     //Refs
-    public PlayerParams playerParams;
-
+    public PlayerParams2 playerParams2;
+    
     private Transform playerTransform;
     private Transform platform;
     private Transform prevPlatform;
@@ -49,19 +49,17 @@ public class PlayerMovement : MonoBehaviour
     {
 
         currentSpeed = 0;
-        playerParams = GetComponent<PlayerParams>();
+        playerParams2 = GetComponent<PlayerParams2>();
 
         playerTransform = transform;
         prevDirection = PlayerStates.direction;
-
         PlayerStates.moveRight = true;
-        PlayerStates.moveUp = true;
     }
 
     void OnDrawGizmos()
     {
-        playerParams = GetComponent<PlayerParams>();
-        Gizmos.DrawWireCube(transform.position, new Vector3(playerParams.playerWidth, playerParams.playerHeight, 1));
+        playerParams2 = GetComponent<PlayerParams2>();
+        Gizmos.DrawWireCube(transform.position, new Vector3(playerParams2.playerWidth, playerParams2.playerHeight, 1));
     }
 
 
@@ -72,17 +70,17 @@ public class PlayerMovement : MonoBehaviour
 
             if (PlayerStates.onJumpbleWall && !PlayerStates.onGround)
             {
-                gravity = playerParams.wallFallSpeed;
+                gravity = playerParams2.wallFallSpeed;
             }
             else
             {
 
-                gravity = playerParams.maxFallSpeed;
+                gravity = playerParams2.maxFallSpeed;
             }
 
             if (currentGravity < gravity)
             {
-                currentGravity += playerParams.gravityAccelerate * Time.deltaTime;
+                currentGravity += playerParams2.gravityAccelerate * Time.deltaTime;
             }
             else
             {
@@ -101,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                playerTransform.Translate(0, hit.point.y - (playerTransform.position.y - playerParams.playerHeight / 2), 0);
+                playerTransform.Translate(0, hit.point.y - (playerTransform.position.y - playerParams2.playerHeight / 2), 0);
                 PlayerStates.onGround = true;
                 PlayerStates.isJump = false;
                 PlayerStates.isFalling = false;
@@ -120,91 +118,61 @@ public class PlayerMovement : MonoBehaviour
 
         prevDirection = PlayerStates.direction;
 
-
         //Handle Inputs************************
-        if (Input.GetAxisRaw(playerParams.MovementAxis) > 0)
+        if (Input.GetAxisRaw(playerParams2.MovementAxis) > 0)
         {
 
-            if (!playerParams.disableMove)
+            if (!playerParams2.disableMove)
             {
-                movePress = true;
                 PlayerStates.moveRight = true;
                 PlayerStates.isMoving = true;
-               
+                movePress = true;
             }
         }
 
-        if (Input.GetAxisRaw(playerParams.UpwardAxis) > 0)
+        if (Input.GetAxisRaw(playerParams2.MovementAxis) < 0)
         {
+            if (!playerParams2.disableMove)
+            {
 
-            if (!playerParams.disableMove)
-            {
-                movePress = true;
-                PlayerStates.moveUp = true;
-                PlayerStates.isMoving = true;
-               
-            }
-        }
-        if (Input.GetAxisRaw(playerParams.MovementAxis) < 0)
-        {
-            if (!playerParams.disableMove)
-            {
-                movePress = true;
                 PlayerStates.moveRight = false;
                 PlayerStates.isMoving = true;
-               
-            }
-        }
-        if (Input.GetAxisRaw(playerParams.UpwardAxis) < 0)
-        {
-
-            if (!playerParams.disableMove)
-            {
                 movePress = true;
-                PlayerStates.moveUp = false;
-                PlayerStates.isMoving = true;
-                
             }
         }
-        if (Input.GetAxisRaw(playerParams.MovementAxis) == 0)
+
+        if (Input.GetAxisRaw(playerParams2.MovementAxis) == 0)
         {
             PlayerStates.isMoving = false;
             movePress = false;
-            playerParams.disableMove = false;
+            playerParams2.disableMove = false;
         }
 
-        if (Input.GetAxisRaw(playerParams.UpwardAxis) == 0)
-        {
-            PlayerStates.isMoving = false;
-            movePress = false;
-            playerParams.disableMove = false;
-        }
         //**************************************
 
         if (PlayerStates.detectGround)
         {
-            currentAcc = playerParams.groundAccelerate;
+            currentAcc = playerParams2.groundAccelerate;
         }
         else
         {
-            currentAcc = playerParams.airAccelerate;
+            currentAcc = playerParams2.airAccelerate;
         }
 
-
-        if (movePress && !playerParams.disableMove)
+        if (movePress && !playerParams2.disableMove)
         {
 
             if (PlayerStates.moveRight)
             {
                 PlayerStates.direction = Vector2.right;
 
-                if (currentSpeed < playerParams.speed)
+                if (currentSpeed < playerParams2.speed)
                 {
                     currentSpeed += (currentAcc * Time.deltaTime);
                 }
-                if (currentSpeed > playerParams.speed)
+                if (currentSpeed > playerParams2.speed)
                 {
-                    currentSpeed = playerParams.speed;
+                    currentSpeed = playerParams2.speed;
                 }
             }
 
@@ -212,41 +180,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 PlayerStates.direction = -Vector2.right;
 
-                if (currentSpeed < playerParams.speed)
+                if (currentSpeed < playerParams2.speed)
                 {
                     currentSpeed += (currentAcc * Time.deltaTime);
                 }
-                if (currentSpeed > playerParams.speed)
+                if (currentSpeed > playerParams2.speed)
                 {
-                    currentSpeed = playerParams.speed;
-                }
-            }
-
-            if (PlayerStates.moveUp)
-            {
-                PlayerStates.direction = Vector2.up;
-
-                if (currentSpeed < playerParams.speed)
-                {
-                    currentSpeed += (currentAcc * Time.deltaTime);
-                }
-                if (currentSpeed > playerParams.speed)
-                {
-                    currentSpeed = playerParams.speed;
-                }
-            }
-
-            if (!PlayerStates.moveUp)
-            {
-                PlayerStates.direction = -Vector2.up;
-
-                if (currentSpeed < playerParams.speed)
-                {
-                    currentSpeed += (currentAcc * Time.deltaTime);
-                }
-                if (currentSpeed > playerParams.speed)
-                {
-                    currentSpeed = playerParams.speed;
+                    currentSpeed = playerParams2.speed;
                 }
             }
         }
@@ -278,30 +218,27 @@ public class PlayerMovement : MonoBehaviour
             currentSpeed = 0.0f;
             if (PlayerStates.moveRight)
             {
-                playerTransform.Translate(hit.point.x - (playerTransform.position.x + ((playerParams.playerWidth / 2) + wallMargin)), 0, 0);
+                playerTransform.Translate(hit.point.x - (playerTransform.position.x + ((playerParams2.playerWidth / 2) + wallMargin)), 0, 0);
             }
             if (!PlayerStates.moveRight)
             {
-                playerTransform.Translate(hit.point.x - (playerTransform.position.x - ((playerParams.playerWidth / 2) + wallMargin)), 0, 0);
+                playerTransform.Translate(hit.point.x - (playerTransform.position.x - ((playerParams2.playerWidth / 2) + wallMargin)), 0, 0);
             }
-
 
             else
             {
 
-                if (!playerParams.disableMove)
+                if (!playerParams2.disableMove)
                 {
                     playerTransform.Translate(currentSpeed * PlayerStates.direction.x * Time.deltaTime, 0, 0);
-                    playerTransform.Translate(currentSpeed * PlayerStates.direction.y * Time.deltaTime, 0, 0);
                 }
             }
         }
         else
         {
-            if (!playerParams.disableMove)
+            if (!playerParams2.disableMove)
             {
                 playerTransform.Translate(currentSpeed * PlayerStates.direction.x * Time.deltaTime, 0, 0);
-                playerTransform.Translate(currentSpeed * PlayerStates.direction.y * Time.deltaTime, 0, 0);
             }
         }
     }
@@ -328,7 +265,7 @@ public class PlayerMovement : MonoBehaviour
         {
 
             //GROUND_JUMP
-            if ((Input.GetAxisRaw(playerParams.JumpAxis) != 0) && !PlayerStates.isJump && PlayerStates.detectGround && canJump)
+            if ((Input.GetAxisRaw(playerParams2.JumpAxis) != 0) && !PlayerStates.isJump && PlayerStates.detectGround && canJump)
             {
                 jumpPress = true;
                 PlayerStates.onGround = false;
@@ -336,43 +273,43 @@ public class PlayerMovement : MonoBehaviour
                 currentJumpCount += 1;
                 PlayerStates.isJump = true;
                 PlayerStates.detectGround = false;
-                currentJumpSpeed = playerParams.jumpSpeed;
+                currentJumpSpeed = playerParams2.jumpSpeed;
                 canJump = false;
-                currentJumpInterval = playerParams.jumpInterval;
+                currentJumpInterval = playerParams2.jumpInterval;
             }
 
 
             //SECOND_JUMP
-            if (playerParams.doubleJump)
+            if (playerParams2.doubleJump)
             {//if Double jump allowed (see player params)
-                if ((Input.GetAxis(playerParams.JumpAxis) != 0) && (currentJumpCount == 1) && !jumpPress && !PlayerStates.detectGround && !PlayerStates.onWall)
+                if ((Input.GetAxis(playerParams2.JumpAxis) != 0) && (currentJumpCount == 1) && !jumpPress && !PlayerStates.detectGround && !PlayerStates.onWall)
                 {
                     jumpPress = true;
                     PlayerStates.isJump = true;
                     PlayerStates.isSecondJump = true;
                     currentJumpCount = 0;
                     currentGravity = 0.0f;
-                    currentJumpSpeed = playerParams.jumpSpeed;
+                    currentJumpSpeed = playerParams2.jumpSpeed;
                     canJump = false;
-                    currentJumpInterval = playerParams.jumpInterval;
+                    currentJumpInterval = playerParams2.jumpInterval;
                 }
             }
 
 
             //WALL_JUMP
-            if (playerParams.wallJump)
+            if (playerParams2.wallJump)
             {//if Wall jump allowed (see player params)
-                if ((Input.GetAxis(playerParams.JumpAxis) != 0) && !PlayerStates.detectGround && PlayerStates.onJumpbleWall && !PlayerStates.isJump)
+                if ((Input.GetAxis(playerParams2.JumpAxis) != 0) && !PlayerStates.detectGround && PlayerStates.onJumpbleWall && !PlayerStates.isJump)
                 {
                     PlayerStates.isJump = true;
                     PlayerStates.isWallJump = true;
                     currentGravity = 0.0f;
-                    currentJumpSpeed = playerParams.jumpSpeed;
-                    currentWallJumpSpeed = playerParams.wallJumpSpeed;
+                    currentJumpSpeed = playerParams2.jumpSpeed;
+                    currentWallJumpSpeed = playerParams2.wallJumpSpeed;
                     movePress = false;
-                    playerParams.disableMove = true;
+                    playerParams2.disableMove = true;
                     canJump = false;
-                    currentJumpInterval = playerParams.jumpInterval;
+                    currentJumpInterval = playerParams2.jumpInterval;
                     currentSpeed = 0.0f;
 
                     if (PlayerStates.moveRight)
@@ -380,27 +317,17 @@ public class PlayerMovement : MonoBehaviour
                         PlayerStates.direction = -Vector2.right;
                         PlayerStates.moveRight = false;
                     }
-                    else if (!PlayerStates.moveRight)
+                    else
                     {
                         PlayerStates.direction = Vector2.right;
                         PlayerStates.moveRight = true;
-                    }
-                    else if (PlayerStates.moveUp)
-                    {
-                        PlayerStates.direction = -Vector2.up;
-                        PlayerStates.moveUp = false;
-                    }
-                    else if (!PlayerStates.moveUp)
-                    {
-                        PlayerStates.direction = Vector2.up;
-                        PlayerStates.moveUp = true;
                     }
                 }
             }
         }
 
         //if we release jump button
-        if (Input.GetAxisRaw(playerParams.JumpAxis) == 0)
+        if (Input.GetAxisRaw(playerParams2.JumpAxis) == 0)
         {
             jumpPress = false;
         }
@@ -409,7 +336,7 @@ public class PlayerMovement : MonoBehaviour
         //Speed down ground jump power 
         if (currentJumpSpeed > 0)
         {
-            currentJumpSpeed -= playerParams.jumpAccelerate * Time.deltaTime;
+            currentJumpSpeed -= playerParams2.jumpAccelerate * Time.deltaTime;
         }
         else
         {
@@ -420,7 +347,7 @@ public class PlayerMovement : MonoBehaviour
         //Speed down wall jump power 
         if ((currentWallJumpSpeed > 0) && PlayerStates.isWallJump)
         {
-            currentWallJumpSpeed -= playerParams.wallJumpAccelerate * Time.deltaTime;
+            currentWallJumpSpeed -= playerParams2.wallJumpAccelerate * Time.deltaTime;
         }
         else
         {
@@ -439,7 +366,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            playerTransform.Translate(0, hit.point.y - (playerTransform.position.y + playerParams.playerHeight / 2), 0);
+            playerTransform.Translate(0, hit.point.y - (playerTransform.position.y + playerParams2.playerHeight / 2), 0);
             PlayerStates.isJump = false;
             currentJumpCount = 0;
         }
@@ -459,21 +386,12 @@ public class PlayerMovement : MonoBehaviour
                 currentWallJumpSpeed = 0;
                 if (PlayerStates.moveRight)
                 {
-                    playerTransform.Translate(hit.point.x - (playerTransform.position.x + ((playerParams.playerWidth / 2) + wallMargin)), 0, 0);
+                    playerTransform.Translate(hit.point.x - (playerTransform.position.x + ((playerParams2.playerWidth / 2) + wallMargin)), 0, 0);
                 }
 
                 if (!PlayerStates.moveRight)
                 {
-                    playerTransform.Translate(hit.point.x - (playerTransform.position.x - ((playerParams.playerWidth / 2) + wallMargin)), 0, 0);
-                }
-                if (PlayerStates.moveUp)
-                {
-                    playerTransform.Translate(hit.point.y - (playerTransform.position.y + ((playerParams.playerHeight / 2) + wallMargin)), 0, 0);
-                }
-
-                if (!PlayerStates.moveUp)
-                {
-                    playerTransform.Translate(hit.point.y - (playerTransform.position.y - ((playerParams.playerHeight / 2) + wallMargin)), 0, 0);
+                    playerTransform.Translate(hit.point.x - (playerTransform.position.x - ((playerParams2.playerWidth / 2) + wallMargin)), 0, 0);
                 }
             }
         }
@@ -509,35 +427,31 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(movePress +  "  movePress");
-        print(playerParams.disableMove +   "  disableMove");
-        print(PlayerStates.direction);
         // print(PlayerStates.moveRight);
-        if (!playerParams.disable)
+        if (!playerParams2.disable)
         {
-            //Gravity();
+            Gravity();
             Moving();
-            //Jump();
+            Jump();
         }
-        //print(Input.GetAxisRaw(playerParams.UpwardAxis));
-
+        print(Input.GetAxisRaw(playerParams2.UpwardAxis));
         //Flip();
     }
 
     public void GroundCheker()
     {
 
-        float originX = playerTransform.position.x - playerParams.playerWidth / 2;
-        float originY = playerTransform.position.y - playerParams.playerHeight / 2;
+        float originX = playerTransform.position.x - playerParams2.playerWidth / 2;
+        float originY = playerTransform.position.y - playerParams2.playerHeight / 2;
 
-        for (int i = 0; i < playerParams.rayCount + 1; i++)
+        for (int i = 0; i < playerParams2.rayCount + 1; i++)
         {
 
-            hit = Physics2D.Raycast(new Vector2(originX, originY), -Vector2.up, currentGravity * Time.deltaTime, playerParams.surfaceLayer);
+            hit = Physics2D.Raycast(new Vector2(originX, originY), -Vector2.up, currentGravity * Time.deltaTime, playerParams2.surfaceLayer);
 
             Debug.DrawRay(new Vector2(originX, originY), -Vector2.up * currentGravity * Time.deltaTime);
 
-            originX += (playerParams.playerWidth / playerParams.rayCount);
+            originX += (playerParams2.playerWidth / playerParams2.rayCount);
 
             if (hit.collider != null)
             {
@@ -552,7 +466,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     transform.parent = null;
 
-                    if (platform.tag == playerParams.movingPlatform)
+                    if (platform.tag == playerParams2.movingPlatform)
                     {
                         transform.parent = platform;
                     }
@@ -572,45 +486,34 @@ public class PlayerMovement : MonoBehaviour
     {
 
         float originX = playerTransform.position.x;
-        float originY = (playerTransform.position.y + (playerParams.playerHeight / 2)) - 0.02f;
+        float originY = (playerTransform.position.y + (playerParams2.playerHeight / 2)) - 0.02f;
 
         if (PlayerStates.moveRight)
         {
-            originX += (playerParams.playerWidth / 2) + wallMargin;
+            originX += (playerParams2.playerWidth / 2) + wallMargin;
 
         }
         else
         {
-            originX -= (playerParams.playerWidth / 2) + wallMargin;
-
-        }
-        if (PlayerStates.moveUp)
-        {
-            originY += (playerParams.playerHeight / 2) + wallMargin;
-
-        }
-        else
-        {
-            originY -= (playerParams.playerHeight / 2) + wallMargin;
+            originX -= (playerParams2.playerWidth / 2) + wallMargin;
 
         }
 
-
-        for (int i = 0; i < playerParams.rayCount + 1; i++)
+        for (int i = 0; i < playerParams2.rayCount + 1; i++)
         {
 
-            hit = Physics2D.Raycast(new Vector2(originX, originY), PlayerStates.direction, dist * Time.deltaTime, playerParams.surfaceLayer);
+            hit = Physics2D.Raycast(new Vector2(originX, originY), PlayerStates.direction, dist * Time.deltaTime, playerParams2.surfaceLayer);
 
             Debug.DrawRay(new Vector2(originX, originY), PlayerStates.direction * dist * Time.deltaTime);
 
-            originY = originY - (playerParams.playerHeight - 0.04f) / playerParams.rayCount;
+            originY = originY - (playerParams2.playerHeight - 0.04f) / playerParams2.rayCount;
 
             if (hit.collider != null)
             {
 
                 PlayerStates.onWall = true;
 
-                if (hit.collider.tag == playerParams.jumpWallTag)
+                if (hit.collider.tag == playerParams2.jumpWallTag)
                 {
                     PlayerStates.onJumpbleWall = true;
                 }
@@ -629,15 +532,15 @@ public class PlayerMovement : MonoBehaviour
     public void ceilingCheck()
     {
 
-        float originX = playerTransform.position.x - playerParams.playerWidth / 2;
-        float originY = playerTransform.position.y + playerParams.playerHeight / 2;
+        float originX = playerTransform.position.x - playerParams2.playerWidth / 2;
+        float originY = playerTransform.position.y + playerParams2.playerHeight / 2;
 
-        for (int i = 0; i < playerParams.rayCount; i++)
+        for (int i = 0; i < playerParams2.rayCount; i++)
         {
 
-            originX += (playerParams.playerWidth / playerParams.rayCount);
+            originX += (playerParams2.playerWidth / playerParams2.rayCount);
 
-            hit = Physics2D.Raycast(new Vector2(originX, originY), Vector2.up, currentJumpSpeed * Time.deltaTime, playerParams.surfaceLayer);
+            hit = Physics2D.Raycast(new Vector2(originX, originY), Vector2.up, currentJumpSpeed * Time.deltaTime, playerParams2.surfaceLayer);
 
             if (hit.collider != null)
             {
@@ -651,7 +554,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-
     public void Poop()  //player stuns the other player; disable the script; add an Invoke on the Update
     {
 
@@ -682,7 +584,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (playerParams.disable == true) //push the enemy away
+        if (playerParams2.disable == true) //push the enemy away
         {
             if (collision.gameObject.name == "Player2")
             {
