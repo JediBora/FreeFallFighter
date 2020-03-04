@@ -29,6 +29,7 @@ public class ParachuteController : MonoBehaviour
     private float ScreenSizeY = 4.3f;
 
     private Rigidbody2D m_parachuteRigidbody2D;
+    private SpriteRenderer m_spriteRenderer;
 
     private float m_initialVelocity;
     private float m_finalVelocity;
@@ -39,9 +40,12 @@ public class ParachuteController : MonoBehaviour
 
     private bool m_nextPositionReached;
 
+    public bool m_collected;
+
     private void Start()
     {
         m_parachuteRigidbody2D = GetComponent<Rigidbody2D>();
+        m_spriteRenderer = GetComponent<SpriteRenderer>();
 
         m_parachuteRigidbody2D.position = new Vector2(0f, 6f);
         m_nextPosition = Vector2.zero;
@@ -73,50 +77,58 @@ public class ParachuteController : MonoBehaviour
 
     private void Movement()
     {
-        if (!m_nextPositionReached && m_parachuteToNextPosition.magnitude > PositionResetRange)
+        if (!m_collected)
         {
-            m_lastDirection = m_parachuteToNextPosition.normalized;
-            //Debug.Log($"LastDirection: {lastDirection}");
-
-            //Debug.Log("ACCELERATE");
-            float accelerationRate = MaxSpeed / AccelerationTime;
-
-            if (m_finalVelocity < MaxSpeed)
+            if (!m_nextPositionReached && m_parachuteToNextPosition.magnitude > PositionResetRange)
             {
-                m_finalVelocity = m_initialVelocity + (accelerationRate * Time.deltaTime);
+                m_lastDirection = m_parachuteToNextPosition.normalized;
+                //Debug.Log($"LastDirection: {lastDirection}");
 
-                if (m_finalVelocity > MaxSpeed)
+                //Debug.Log("ACCELERATE");
+                float accelerationRate = MaxSpeed / AccelerationTime;
+
+                if (m_finalVelocity < MaxSpeed)
                 {
-                    m_finalVelocity = MaxSpeed;
+                    m_finalVelocity = m_initialVelocity + (accelerationRate * Time.deltaTime);
+
+                    if (m_finalVelocity > MaxSpeed)
+                    {
+                        m_finalVelocity = MaxSpeed;
+                    }
+                    //Debug.Log(finalVelocity);
                 }
-                //Debug.Log(finalVelocity);
+
+                transform.Translate((m_parachuteToNextPosition.normalized * m_finalVelocity) * Time.deltaTime, Space.World);
+
+                m_initialVelocity = m_finalVelocity;
             }
+            else
+            {
+                //Debug.Log("DECELERATE");
+                float decelerationRate = MaxSpeed / DecelerationTime;
 
-            transform.Translate((m_parachuteToNextPosition.normalized * m_finalVelocity) * Time.deltaTime, Space.World);
+                if (m_finalVelocity > 0)
+                {
+                    m_finalVelocity = m_initialVelocity - (decelerationRate * Time.deltaTime);
 
-            m_initialVelocity = m_finalVelocity;
+                    if (m_finalVelocity < MinSpeed)
+                    {
+                        //finalVelocity = 0;
+                        m_nextPositionReached = false;
+                    }
+                    //Debug.Log(finalVelocity);
+                }
+
+                transform.Translate((m_lastDirection * m_finalVelocity) * Time.deltaTime, Space.World);
+
+                m_initialVelocity = m_finalVelocity;
+            }
         }
         else
         {
-            //Debug.Log("DECELERATE");
-            float decelerationRate = MaxSpeed / DecelerationTime;
-
-            if (m_finalVelocity > 0)
-            {
-                m_finalVelocity = m_initialVelocity - (decelerationRate * Time.deltaTime);
-
-                if (m_finalVelocity < MinSpeed)
-                {
-                    //finalVelocity = 0;
-                    m_nextPositionReached = false;
-                }
-                //Debug.Log(finalVelocity);
-            }
-
-            transform.Translate((m_lastDirection * m_finalVelocity) * Time.deltaTime, Space.World);
-
-            m_initialVelocity = m_finalVelocity;
+            //Debug.Log("Parachute Collected");
         }
+        
 
         // First method, movement looks like its being remote controlled
         //m_parachuteRigidbody2D.position = Vector3.MoveTowards(m_parachuteRigidbody2D.position, m_nextPosition, Agility);
@@ -131,5 +143,14 @@ public class ParachuteController : MonoBehaviour
         //transform.Translate(transform.up * ((Speed *(m_distance.magnitude * EasingMultiplier)) * Time.deltaTime), Space.World);
 
         //transform.Rotate(0, 0, (RotateSpeedInDegrees * Time.deltaTime) * directionOfRotation, Space.Self);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            m_spriteRenderer.color = Color.white;
+            m_collected = true;
+        }
     }
 }
