@@ -273,8 +273,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 204}
-  m_SizeDelta: {x: 50, y: 30}
+  m_AnchoredPosition: {x: 0, y: 185}
+  m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &404960938
 MonoBehaviour:
@@ -300,7 +300,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 9b610495ac0f76841a48f510476403fc, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 1
@@ -568,6 +568,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
+        type: 3}
+      propertyPath: startText
+      value: 
+      objectReference: {fileID: 404960938}
+    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
+        type: 3}
+      propertyPath: timeLeft
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
+        type: 3}
+      propertyPath: Player1Meter
+      value: 
+      objectReference: {fileID: 1967375098}
+    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
+        type: 3}
+      propertyPath: Player1MeterNumber
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
+        type: 3}
+      propertyPath: sliderProgress
+      value: 
+      objectReference: {fileID: 586996787}
     - target: {fileID: 1103633402228160295, guid: dad9298748ff1d6498cd7b2885b09905,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -623,31 +648,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
-        type: 3}
-      propertyPath: startText
-      value: 
-      objectReference: {fileID: 404960938}
-    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
-        type: 3}
-      propertyPath: timeLeft
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
-        type: 3}
-      propertyPath: Player1Meter
-      value: 
-      objectReference: {fileID: 1967375098}
-    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
-        type: 3}
-      propertyPath: Player1MeterNumber
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
-        type: 3}
-      propertyPath: sliderProgress
-      value: 
-      objectReference: {fileID: 586996787}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dad9298748ff1d6498cd7b2885b09905, type: 3}
 --- !u!1 &942698221
