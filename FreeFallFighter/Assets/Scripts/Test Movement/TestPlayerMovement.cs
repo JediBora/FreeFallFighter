@@ -39,6 +39,11 @@ public class TestPlayerMovement : MonoBehaviour
         CollectInput();
         FlipSprite();
         Movement();
+
+        // MECHNANICS
+        Peck();
+        WingAttack();
+        Poop();
     }
 
     private void CollectInput()
@@ -48,6 +53,18 @@ public class TestPlayerMovement : MonoBehaviour
         // PECK
         // WING ATTACK
         // POOP
+    }
+    void Peck()
+    {
+
+    }
+    void Poop()
+    {
+
+    }
+    void WingAttack()
+    {
+
     }
 
     private void FlipSprite()

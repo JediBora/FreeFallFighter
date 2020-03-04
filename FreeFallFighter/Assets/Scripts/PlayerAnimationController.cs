@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAnimationController : MonoBehaviour
 {
-    [Range(1,2)]
+    [Range(1, 2)]
     public int PlayerNum;
 
     private int FacingDirH = 0;
@@ -12,7 +12,6 @@ public class PlayerAnimationController : MonoBehaviour
     private Animator Panim;
     private Player1Script Param1;
     private Player2Script Param2;
-    private PlayerMovement Pmove;
     private float MoveX;
     private float MoveY;
     // Start is called before the first frame update
@@ -20,16 +19,16 @@ public class PlayerAnimationController : MonoBehaviour
     {
         Panim = gameObject.GetComponentInChildren<Animator>();
 
-        if(PlayerNum == 1)
+        if (PlayerNum == 1)
         {
             Param1 = gameObject.GetComponent<Player1Script>();
         }
-        
-        if(PlayerNum == 2)
+
+        if (PlayerNum == 2)
         {
             Param2 = gameObject.GetComponent<Player2Script>();
         }
-        
+
     }
 
     // Update is called once per frame
@@ -38,7 +37,7 @@ public class PlayerAnimationController : MonoBehaviour
         if (PlayerNum == 1)
         {
             MoveGet(new Vector2(Input.GetAxis("Player1Movement"), Input.GetAxis("Player1Upwards")));
-            if(Input.GetButton("Player1Peck"))
+            if (Input.GetButton("Player1Peck"))
             {
                 PeckSet();
             }
@@ -52,8 +51,8 @@ public class PlayerAnimationController : MonoBehaviour
                 PeckSet();
             }
         }
-        
-        
+
+
     }
 
 
@@ -79,7 +78,7 @@ public class PlayerAnimationController : MonoBehaviour
         if (input.x == 0)
         {
             Panim.SetInteger("ValX", 0);
-            
+
         }
 
         // Vertical Movement
@@ -102,7 +101,7 @@ public class PlayerAnimationController : MonoBehaviour
         if (input.y == 0)
         {
             Panim.SetInteger("ValY", 0);
-            
+
         }
     }
 
