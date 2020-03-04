@@ -10,14 +10,12 @@ public class ParachuteController : MonoBehaviour
     private float DecelerationTime = 1;
     [SerializeField]
     private float MaxSpeed = 1;
-
-    private float initialVelocity;
-    private float finalVelocity;
-
-    private Vector2 lastDirection;
-
     [SerializeField]
-    private float ResetRange = 0;
+    private float MinSpeed = 0.5f;
+    
+    [SerializeField]
+    private float PositionResetRange = 0.1f;
+
     //[SerializeField]
     //private float Speed = 1.0f;
     //[SerializeField]
@@ -32,8 +30,12 @@ public class ParachuteController : MonoBehaviour
 
     private Rigidbody2D m_parachuteRigidbody2D;
 
+    private float m_initialVelocity;
+    private float m_finalVelocity;
+
     private Vector2 m_parachuteToNextPosition;
     private Vector2 m_nextPosition;
+    private Vector2 m_lastDirection;
 
     private bool m_nextPositionReached;
 
@@ -43,6 +45,7 @@ public class ParachuteController : MonoBehaviour
 
         m_parachuteRigidbody2D.position = new Vector2(0f, 6f);
         m_nextPosition = Vector2.zero;
+
         //Debug.Log($"Next Position: {m_nextPosition}");
     }
 
@@ -52,7 +55,7 @@ public class ParachuteController : MonoBehaviour
         Movement();
 
         // Locks location of child sprite
-        transform.GetChild(0).transform.rotation = Quaternion.identity;
+        //transform.GetChild(0).transform.rotation = Quaternion.identity;
     }
 
     private void SetRandomNextPosition()
@@ -61,7 +64,7 @@ public class ParachuteController : MonoBehaviour
         //Debug.Log($"ParachuteToNext: {m_parachuteToNextPosition}");
         //Debug.Log($"ParachuteToNextNormalized: {m_parachuteToNextPosition.normalized}");
 
-        if (m_parachuteToNextPosition.magnitude < ResetRange)
+        if (m_parachuteToNextPosition.magnitude < PositionResetRange)
         {
             m_nextPositionReached = true;
             m_nextPosition = new Vector3(Random.Range(-ScreenSizeX, ScreenSizeX), Random.Range(-ScreenSizeY, ScreenSizeY));
@@ -70,49 +73,49 @@ public class ParachuteController : MonoBehaviour
 
     private void Movement()
     {
-        if (!m_nextPositionReached && m_parachuteToNextPosition.magnitude > ResetRange)
+        if (!m_nextPositionReached && m_parachuteToNextPosition.magnitude > PositionResetRange)
         {
-            lastDirection = m_parachuteToNextPosition.normalized;
+            m_lastDirection = m_parachuteToNextPosition.normalized;
             //Debug.Log($"LastDirection: {lastDirection}");
 
             //Debug.Log("ACCELERATE");
             float accelerationRate = MaxSpeed / AccelerationTime;
 
-            if (finalVelocity < MaxSpeed)
+            if (m_finalVelocity < MaxSpeed)
             {
-                finalVelocity = initialVelocity + (accelerationRate * Time.deltaTime);
+                m_finalVelocity = m_initialVelocity + (accelerationRate * Time.deltaTime);
 
-                if (finalVelocity > MaxSpeed)
+                if (m_finalVelocity > MaxSpeed)
                 {
-                    finalVelocity = MaxSpeed;
+                    m_finalVelocity = MaxSpeed;
                 }
                 //Debug.Log(finalVelocity);
             }
 
-            transform.Translate((m_parachuteToNextPosition.normalized * finalVelocity) * Time.deltaTime, Space.World);
+            transform.Translate((m_parachuteToNextPosition.normalized * m_finalVelocity) * Time.deltaTime, Space.World);
 
-            initialVelocity = finalVelocity;
+            m_initialVelocity = m_finalVelocity;
         }
         else
         {
             //Debug.Log("DECELERATE");
             float decelerationRate = MaxSpeed / DecelerationTime;
 
-            if (finalVelocity > 0)
+            if (m_finalVelocity > 0)
             {
-                finalVelocity = initialVelocity - (decelerationRate * Time.deltaTime);
+                m_finalVelocity = m_initialVelocity - (decelerationRate * Time.deltaTime);
 
-                if (finalVelocity < 0)
+                if (m_finalVelocity < MinSpeed)
                 {
-                    finalVelocity = 0;
+                    //finalVelocity = 0;
                     m_nextPositionReached = false;
                 }
                 //Debug.Log(finalVelocity);
             }
 
-            transform.Translate((lastDirection * finalVelocity) * Time.deltaTime, Space.World);
+            transform.Translate((m_lastDirection * m_finalVelocity) * Time.deltaTime, Space.World);
 
-            initialVelocity = finalVelocity;
+            m_initialVelocity = m_finalVelocity;
         }
 
         // First method, movement looks like its being remote controlled

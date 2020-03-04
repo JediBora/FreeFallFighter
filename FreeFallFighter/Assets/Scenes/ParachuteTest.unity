@@ -496,8 +496,9 @@ MonoBehaviour:
   AccelerationTime: 2
   DecelerationTime: 2
   MaxSpeed: 2.5
-  ResetRange: 0.1
-  ScreenSizeX: 5
+  MinSpeed: 0.5
+  PositionResetRange: 0.1
+  ScreenSizeX: 4.8
   ScreenSizeY: 3.5
 --- !u!50 &774320154
 Rigidbody2D:
