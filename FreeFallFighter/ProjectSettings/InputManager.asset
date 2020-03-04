@@ -345,10 +345,10 @@ InputManager:
     m_Name: Player1WingAttack
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: u
-    positiveButton: u
-    altNegativeButton: u
-    altPositiveButton: u
+    negativeButton: m
+    positiveButton: m
+    altNegativeButton: 
+    altPositiveButton: 
     gravity: 3
     dead: 0.001
     sensitivity: 3
@@ -361,10 +361,10 @@ InputManager:
     m_Name: Player2WingAttack
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: j
-    positiveButton: j
-    altNegativeButton: j
-    altPositiveButton: j
+    negativeButton: e
+    positiveButton: e
+    altNegativeButton: 
+    altPositiveButton: 
     gravity: 3
     dead: 0.001
     sensitivity: 3
@@ -377,10 +377,10 @@ InputManager:
     m_Name: Player1Poop
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: i
-    positiveButton: i
-    altNegativeButton: i
-    altPositiveButton: i
+    negativeButton: ','
+    positiveButton: ','
+    altNegativeButton: 
+    altPositiveButton: 
     gravity: 3
     dead: 0.001
     sensitivity: 3
@@ -393,10 +393,10 @@ InputManager:
     m_Name: Player2Poop
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: k
-    positiveButton: k
-    altNegativeButton: k
-    altPositiveButton: k
+    negativeButton: r
+    positiveButton: r
+    altNegativeButton: 
+    altPositiveButton: 
     gravity: 3
     dead: 0.001
     sensitivity: 3
@@ -409,10 +409,10 @@ InputManager:
     m_Name: Player1Peck
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: y
-    positiveButton: y
-    altNegativeButton: y
-    altPositiveButton: y
+    negativeButton: .
+    positiveButton: .
+    altNegativeButton: 
+    altPositiveButton: 
     gravity: 3
     dead: 0.001
     sensitivity: 3
@@ -425,10 +425,10 @@ InputManager:
     m_Name: Player2Peck
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: h
-    positiveButton: h
-    altNegativeButton: h
-    altPositiveButton: h
+    negativeButton: t
+    positiveButton: t
+    altNegativeButton: 
+    altPositiveButton: 
     gravity: 3
     dead: 0.001
     sensitivity: 3

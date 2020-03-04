@@ -147,7 +147,7 @@ public class ParachuteController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player1" || other.tag == "Player2")
         {
             m_spriteRenderer.color = Color.white;
             m_collected = true;
