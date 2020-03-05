@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ButtonMasher : MonoBehaviour
 {
+    [HideInInspector]
     public GameObject WinningPlayer;
     public GameObject Player01;
     public GameObject Player02;
@@ -47,14 +48,26 @@ public class ButtonMasher : MonoBehaviour
         UpdateUIGauge();
         CheckForWin();
 
-        print(player01ButtonAmount);
-        print(player02ButtonAmount);
+        //print(player01ButtonAmount);
+        //print(player02ButtonAmount);
     }
 
-    public void ActivateObject(bool state)
+    public void ActivateObject(bool state, GameObject playerWithParachute)
     {
-        Player01Gauge.gameObject.SetActive(state);
-        Player02Gauge.gameObject.SetActive(state);
+        string playerName = playerWithParachute.name;
+
+        if (playerName == Player01.name)
+        {
+            Player01Gauge.gameObject.SetActive(state);
+        }
+        else if (playerName == Player02.name)
+        {
+            Player02Gauge.gameObject.SetActive(state);
+        }
+        else
+        {
+            Debug.LogError("String failed to compare");
+        }  
     }
 
     private void UpdateUIGauge()
@@ -75,7 +88,7 @@ public class ButtonMasher : MonoBehaviour
                 player01ButtonAmount += 1;
             }
             m_timeBetweenMash01 = currentTime - m_lastPressedTime01;
-            //Debug.Log($"Time Between Mash Player 01: {m_timeBetweenMash01}");
+            Debug.Log($"Time Between Mash Player 01: {m_timeBetweenMash01}");
 
             Player01Gauge.value += ValueIncrementGate - m_timeBetweenMash01;
             //Debug.Log($"01 Value: {Player01Gauge.value}");
