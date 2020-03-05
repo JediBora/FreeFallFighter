@@ -37,11 +37,7 @@ public class InGameUI : MonoBehaviour
 
     }
 
-    public void OnSelect(BaseEventData eventData)
-    {
-        Debug.Log(this.gameObject.name + "this was selected");
-
-    }
+ 
 
     public void LoadGame()
     {
