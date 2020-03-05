@@ -14,10 +14,21 @@ public class MainMenuUI : MonoBehaviour
     public Scrollbar Player1Meter;
     public Slider sliderProgress;
     public bool TimerOn = true;
+    public Text PlayerWins;
+
+    public Text blinkingText;
+    public float blinkingTimer = 0f;
+
+    void Start()
+    {
+        
+    }
 
     void Update()
     {
         Timer();
+        Blink();
+        Debug.Log("Woring");
 
         sliderNumber += 1f;
         sliderProgress.GetComponent<Slider>().value = timeLeft;
@@ -27,9 +38,29 @@ public class MainMenuUI : MonoBehaviour
             Player1MeterNumber += 0.1f;
             Player1Meter.GetComponent<Scrollbar>().size = Player1MeterNumber;
         }
+
     }
 
-    public void NextScene()
+    public void Blink()
+    {
+
+        Debug.Log("Wokring");
+
+        blinkingTimer += Time.deltaTime;
+
+        if (blinkingTimer >= 0.5)
+        {
+            blinkingText.GetComponent<Text>().enabled = true;
+        }
+
+        if (blinkingTimer >= 1)
+        {
+            blinkingText.GetComponent<Text>().enabled = false;
+            blinkingTimer = 0;
+        }
+    }
+
+    public void LoadGame()
     {
         SceneManager.LoadScene("In-Game UI Layout");
     }
@@ -39,7 +70,7 @@ public class MainMenuUI : MonoBehaviour
         Application.Quit();
     }
 
-    public void Back()
+    public void MainMenu()
     {
         SceneManager.LoadScene("Main Menu UI Layout");
     }
@@ -47,6 +78,11 @@ public class MainMenuUI : MonoBehaviour
     public void CharacterSelect()
     {
         SceneManager.LoadScene("Character Selection");
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 
     public void Timer()
@@ -57,6 +93,7 @@ public class MainMenuUI : MonoBehaviour
             if (timeLeft < 0)
             {
                 TimerOn = false;
+                GameOver();
             }
         }
     }
