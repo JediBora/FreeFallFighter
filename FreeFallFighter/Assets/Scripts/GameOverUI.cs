@@ -9,8 +9,18 @@ public class GameOverUI : MonoBehaviour
     public Text PlayerWins;
     public GameObject playerWinsGO;
     public float endPos;
-    public GameObject playAgain;
-    public GameObject quit;
+    public Image playAgain;
+    public Image quit;
+    public int moveNum = 1500;
+
+    public void Awake()
+    {
+        Color c = playAgain.color;
+        c.a = 0;
+        playAgain.color = c;
+        quit.color = c;
+
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -21,9 +31,15 @@ public class GameOverUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (endPos >= 150)
+        if (endPos <= moveNum)
         {
             playerWinsGO.transform.Translate(-Vector3.up * 50 * Time.deltaTime);
+            endPos += 10;
+        }
+
+        if(endPos == 1500)
+        {
+            StartCoroutine(UIDelay());
         }
 
         if (Input.GetButtonDown("Fire1"))
@@ -40,4 +56,19 @@ public class GameOverUI : MonoBehaviour
             PlayerWins.color = Color.blue;
         }
     }
+
+    IEnumerator UIDelay()
+    {
+
+        Color c = playAgain.color;
+        c.a = 250;
+        playAgain.color = c;
+
+        yield return new WaitForSeconds(1.35f);
+
+        quit.color = c;
+
+        StopCoroutine(UIDelay());
+    }
+
 }
