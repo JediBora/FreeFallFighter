@@ -17,9 +17,11 @@ public class MainMenuUI : MonoBehaviour, ISelectHandler
     public bool TimerOn = true;
     public Text PlayerWins;
 
+    ButtonMasher script;
+
     void Start()
     {
-        
+        script = GetComponent<ButtonMasher>();
     }
 
     void Update()
@@ -36,14 +38,14 @@ public class MainMenuUI : MonoBehaviour, ISelectHandler
             Player1Meter.GetComponent<Scrollbar>().size = Player1MeterNumber;
         }
 
-        else if (Input.GetButtonDown("Fire1"))
+        if (script.player01wins)
         {
             Debug.Log("Player 1");
             PlayerWins.text = "Player 1 Wins";
             PlayerWins.color = Color.red;
         }
 
-        else if (Input.GetButtonDown("Fire2"))
+        if (script.player02wins)
         {
             Debug.Log("Player 2");
             PlayerWins.text = "Player 2 Wins";
@@ -52,7 +54,7 @@ public class MainMenuUI : MonoBehaviour, ISelectHandler
 
     }
 
-    public void OnSelect (BaseEventData eventData)
+    public void OnSelect(BaseEventData eventData)
     {
         Debug.Log(this.gameObject.name + "this was selected");
     }
@@ -84,9 +86,10 @@ public class MainMenuUI : MonoBehaviour, ISelectHandler
 
     public void Timer()
     {
-        if (TimerOn == true) {
+        if (TimerOn == true)
+        {
             timeLeft -= Time.deltaTime;
-            startText.text = (timeLeft).ToString("0");  
+            startText.text = (timeLeft).ToString("0");
             if (timeLeft < 0)
             {
                 TimerOn = false;

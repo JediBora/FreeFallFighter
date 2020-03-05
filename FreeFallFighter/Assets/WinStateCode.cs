@@ -22,14 +22,15 @@ public class WinStateCode : MonoBehaviour
 
         if (collision.gameObject.tag == "Player1" && script.player01wins)
         {
-            print("player1 wins");
-
+            SceneManager.LoadScene("GameOver");
+           print("player1 wins");
+            
         }
 
         if (collision.gameObject.tag == "Player2" && script.player02wins)
         {
-
-            print("player2 wins");
+            SceneManager.LoadScene("GameOver");
+           print("player2 wins");
         }
 
     }
