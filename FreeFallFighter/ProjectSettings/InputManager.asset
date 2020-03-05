@@ -393,8 +393,8 @@ InputManager:
     m_Name: Player2Poop
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: r
-    positiveButton: r
+    negativeButton: v
+    positiveButton: v
     altNegativeButton: 6
     altPositiveButton: 6
     gravity: 3

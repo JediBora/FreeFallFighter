@@ -122,7 +122,7 @@ public class TestPlayerMovement : MonoBehaviour
     }
     void Peck()// add knockback 
     {
-        if (PlayerNum == 1 && Input.GetButton("Player1Peck") && peckActive)
+        if (PlayerNum == 1 && Input.GetButtonDown("Player1Peck") && peckActive)
         {
             if (m_facingRight && PlayerNum == 1)
             {
@@ -138,7 +138,7 @@ public class TestPlayerMovement : MonoBehaviour
             //otherRb.AddForce(transform.right * 1);
             StartCoroutine("WaitAndChangeColor2");
         }
-        if (PlayerNum == 2 && Input.GetButton("Player2Peck") && peckActive)
+        if (PlayerNum == 2 && Input.GetButtonDown("Player2Peck") && peckActive)
         {
             if (m_facingRight && PlayerNum == 2)
             {
@@ -178,14 +178,14 @@ public class TestPlayerMovement : MonoBehaviour
         if (PlayerNum == 1 && Input.GetButtonDown("Player1Poop"))
         {
             poops = Instantiate(poop, transform.position, Quaternion.identity);
-            Destroy(poops, 6f);
+            Destroy(poops, 3f);
         }
 
 
         if (PlayerNum == 2 && Input.GetButtonDown("Player2Poop"))
         {
             poops = Instantiate(poop, transform.position, Quaternion.identity);
-            Destroy(poops, 6f);
+            Destroy(poops, 3f);
         }
 
         if (poops != null && PlayerNum == 1)
