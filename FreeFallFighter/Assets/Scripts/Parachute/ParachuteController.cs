@@ -159,14 +159,24 @@ public class ParachuteController : MonoBehaviour
     {
         if (ButtonMasherObject.GetComponent<ButtonMasher>().WinningPlayer != null)
         {
-            // Set a new position
-            m_nextPosition = new Vector3(Random.Range(-ScreenSizeX, ScreenSizeX), Random.Range(-ScreenSizeY, ScreenSizeY));
+            ButtonMasherObject.GetComponent<ButtonMasher>().ActivateObject(false);
 
-            // Increase the Speed, Decrease AccelerationTime so that object moves away faster
-            MaxSpeed += AddedLaunchSpeed;
+            if (ButtonMasherObject.GetComponent<ButtonMasher>().WinningPlayer == m_playerWhoCollected)
+            {
+                // WIN CONDITION
 
-            // Set to false so that Movement returns
-            m_collected = false;
+            }
+            else
+            {
+                // Set a new position
+                m_nextPosition = new Vector3(Random.Range(-ScreenSizeX, ScreenSizeX), Random.Range(-ScreenSizeY, ScreenSizeY));
+
+                // Increase the Speed, Decrease AccelerationTime so that object moves away faster
+                MaxSpeed += AddedLaunchSpeed;
+
+                // Set to false so that Movement returns
+                m_collected = false;
+            }           
         }
     }
 
@@ -177,6 +187,8 @@ public class ParachuteController : MonoBehaviour
             m_playerWhoCollected = other.gameObject;
             m_spriteRenderer.color = Color.white;
             m_collected = true;
+
+            ButtonMasherObject.GetComponent<ButtonMasher>().ActivateObject(true);
         }
     }
 }

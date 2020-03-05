@@ -38,6 +38,12 @@ public class ButtonMasher : MonoBehaviour
         CheckForWin();
     }
 
+    public void ActivateObject(bool state)
+    {
+        Player01Gauge.gameObject.SetActive(state);
+        Player02Gauge.gameObject.SetActive(state);
+    }
+
     private void UpdateUIGauge()
     {
         Player01Gauge.value += ValueDecrement * Time.deltaTime;
@@ -52,10 +58,10 @@ public class ButtonMasher : MonoBehaviour
         if (Input.GetButtonDown("Player1Mash"))
         {
             m_timeBetweenMash01 = currentTime - m_lastPressedTime01;
-            Debug.Log($"Time Between Mash Player 01: {m_timeBetweenMash01}");
+            //Debug.Log($"Time Between Mash Player 01: {m_timeBetweenMash01}");
 
             Player01Gauge.value += ValueIncrementGate - m_timeBetweenMash01;
-            Debug.Log($"01 Value: {Player01Gauge.value}");
+            //Debug.Log($"01 Value: {Player01Gauge.value}");
 
             m_lastPressedTime01 = Time.time;
         }
@@ -63,7 +69,7 @@ public class ButtonMasher : MonoBehaviour
         if (Input.GetButtonDown("Player2Mash"))
         {
             m_timeBetweenMash02 = currentTime - m_lastPressedTime02;
-            Debug.Log($"Time Between Mash Player 02: {m_timeBetweenMash02}");
+            //Debug.Log($"Time Between Mash Player 02: {m_timeBetweenMash02}");
 
             Player02Gauge.value += ValueIncrementGate - m_timeBetweenMash02;
 
@@ -73,11 +79,11 @@ public class ButtonMasher : MonoBehaviour
 
     public void CheckForWin()
     {
-        if (Player01Gauge.value == 1f)
+        if (Player01Gauge.value >= 0.98f)
         {
             WinningPlayer = Player01;
         }
-        else if (Player02Gauge.value == 1f)
+        else if (Player02Gauge.value >= 0.98f)
         {
             WinningPlayer = Player02;
         }
@@ -85,6 +91,11 @@ public class ButtonMasher : MonoBehaviour
         {
             WinningPlayer = null;
         }
-        Debug.Log($"{WinningPlayer} Wins");
+
+        if (WinningPlayer != null)
+        {
+            //Debug.Log($"{WinningPlayer.name} Wins");
+        }
+        
     }
 }
