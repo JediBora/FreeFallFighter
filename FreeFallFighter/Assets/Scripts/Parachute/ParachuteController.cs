@@ -14,9 +14,13 @@ public class ParachuteController : MonoBehaviour
     private float MinSpeed = 0.5f;
     [SerializeField]
     private float AddedLaunchSpeed = 1f;
+    [SerializeField]
+    private float EnteringSpeed = 1f;
     
     [SerializeField]
     private float PositionResetRange = 0.1f;
+    [SerializeField]
+    private float SlowDownRange = 0.1f;
     [SerializeField]
     private float PositionOffsetWhileCollected = 1f;
 
@@ -34,29 +38,32 @@ public class ParachuteController : MonoBehaviour
     private float ScreenSizeY = 4.3f;
 
     public GameObject ButtonMasherObject;
+    public GameObject Player01;
+    public GameObject Player02;
 
     private GameObject m_playerWhoCollected;
-    private Rigidbody2D m_parachuteRigidbody2D;
     private SpriteRenderer m_spriteRenderer;
 
     private float m_initialVelocity;
     private float m_finalVelocity;   
 
     private Vector2 m_parachuteToNextPosition;
-    private Vector2 m_nextPosition;
     private Vector2 m_lastDirection;
+    private Vector3 m_nextPosition;  
+    private Vector3 m_directionOpposite;
 
     private bool m_nextPositionReached;
+    private bool m_startPositionReached;
 
     public bool m_collected;
 
     private void Start()
     {
-        m_parachuteRigidbody2D = GetComponent<Rigidbody2D>();
         m_spriteRenderer = GetComponent<SpriteRenderer>();
 
-        m_parachuteRigidbody2D.position = new Vector2(0f, 6f);
+        transform.position = new Vector2(0f, 6f);
         m_nextPosition = Vector2.zero;
+        m_startPositionReached = false;
 
         //Debug.Log($"Next Position: {m_nextPosition}");
     }
@@ -72,64 +79,85 @@ public class ParachuteController : MonoBehaviour
 
     private void SetRandomNextPosition()
     {
-        m_parachuteToNextPosition = m_nextPosition - m_parachuteRigidbody2D.position;
-        //Debug.Log($"ParachuteToNext: {m_parachuteToNextPosition}");
-        //Debug.Log($"ParachuteToNextNormalized: {m_parachuteToNextPosition.normalized}");
+        // DETERMINE DIRECTION OPPOSITE OF NEAREST PLAYER
 
-        if (m_parachuteToNextPosition.magnitude < PositionResetRange)
+        Vector3 ParachuteToPlayer01 = Player01.transform.position - transform.position;
+        Vector3 ParachuteToPlayer02 = Player02.transform.position - transform.position;
+
+        float closestPlayer = Mathf.Min(ParachuteToPlayer01.magnitude, ParachuteToPlayer02.magnitude);
+
+        if (closestPlayer == ParachuteToPlayer01.magnitude)
         {
-            m_nextPositionReached = true;
-            m_nextPosition = new Vector3(Random.Range(-ScreenSizeX, ScreenSizeX), Random.Range(-ScreenSizeY, ScreenSizeY));
+            m_directionOpposite = -ParachuteToPlayer01;
         }
+        else if (closestPlayer == ParachuteToPlayer02.magnitude)
+        {
+            m_directionOpposite = -ParachuteToPlayer02;
+        }
+        else
+        {
+            Debug.Log("NO player is close");
+        }
+
+        m_parachuteToNextPosition = m_directionOpposite;
     }
 
     private void Movement()
     {
         if (!m_collected)
-        {
-            if (!m_nextPositionReached && m_parachuteToNextPosition.magnitude > PositionResetRange)
+        {            
+            if (m_startPositionReached)
             {
-                m_lastDirection = m_parachuteToNextPosition.normalized;
-                //Debug.Log($"LastDirection: {lastDirection}");
-
-                //Debug.Log("ACCELERATE");
-                float accelerationRate = MaxSpeed / AccelerationTime;
-
-                if (m_finalVelocity < MaxSpeed)
+                //Debug.Log($"DistanceBetweenPlayers: {m_parachuteToNextPosition.magnitude}" + $" Slow Down Range: {SlowDownRange}");
+                //if (!m_nextPositionReached && m_parachuteToNextPosition.magnitude > PositionResetRange)
+                if (m_parachuteToNextPosition.magnitude < SlowDownRange)
                 {
-                    m_finalVelocity = m_initialVelocity + (accelerationRate * Time.deltaTime);
+                    m_lastDirection = m_parachuteToNextPosition.normalized;
+                    //Debug.Log($"LastDirection: {lastDirection}");
 
-                    if (m_finalVelocity > MaxSpeed)
+                    //Debug.Log("ACCELERATE");
+                    float accelerationRate = MaxSpeed / AccelerationTime;
+
+                    if (m_finalVelocity < MaxSpeed)
                     {
-                        m_finalVelocity = MaxSpeed;
+                        m_finalVelocity = m_initialVelocity + (accelerationRate * Time.deltaTime);
+
+                        if (m_finalVelocity > MaxSpeed)
+                        {
+                            m_finalVelocity = MaxSpeed;
+                        }
+                        //Debug.Log(finalVelocity);
                     }
-                    //Debug.Log(finalVelocity);
+
+                    transform.Translate((m_parachuteToNextPosition.normalized * m_finalVelocity) * Time.deltaTime, Space.World);
+
+                    m_initialVelocity = m_finalVelocity;
                 }
-
-                transform.Translate((m_parachuteToNextPosition.normalized * m_finalVelocity) * Time.deltaTime, Space.World);
-
-                m_initialVelocity = m_finalVelocity;
-            }
-            else
-            {
-                //Debug.Log("DECELERATE");
-                float decelerationRate = MaxSpeed / DecelerationTime;
-
-                if (m_finalVelocity > 0)
+                else
                 {
-                    m_finalVelocity = m_initialVelocity - (decelerationRate * Time.deltaTime);
+                    //Debug.Log("DECELERATE");
+                    float decelerationRate = MaxSpeed / DecelerationTime;
 
-                    if (m_finalVelocity < MinSpeed)
+                    if (m_finalVelocity > 0)
                     {
-                        //finalVelocity = 0;
-                        m_nextPositionReached = false;
+                        m_finalVelocity = m_initialVelocity - (decelerationRate * Time.deltaTime);
+
+                        if (m_finalVelocity < MinSpeed)
+                        {
+                            //finalVelocity = 0;
+                            m_nextPositionReached = false;
+                        }
+                        //Debug.Log(finalVelocity);
                     }
-                    //Debug.Log(finalVelocity);
                 }
 
                 transform.Translate((m_lastDirection * m_finalVelocity) * Time.deltaTime, Space.World);
 
                 m_initialVelocity = m_finalVelocity;
+            }
+            else
+            {
+                IntroMovement();
             }
         }
         else
@@ -155,6 +183,26 @@ public class ParachuteController : MonoBehaviour
     }
 
     // Called in Movement();
+    private void IntroMovement()
+    {
+        m_parachuteToNextPosition = m_nextPosition - transform.position;
+        //Debug.Log($"ParachuteToNext: {m_parachuteToNextPosition}");
+        //Debug.Log($"ParachuteToNextNormalized: {m_parachuteToNextPosition.normalized}");
+
+        transform.position = Vector3.Lerp(transform.position, m_nextPosition, EnteringSpeed) * Time.deltaTime;
+
+        if (m_parachuteToNextPosition.magnitude < PositionResetRange)
+        {
+            // INITIAL START POSITION
+            m_startPositionReached = true;
+
+            // DETERMINE DIRECTION RANDOMLY 
+            //m_nextPositionReached = true;
+            //m_nextPosition = new Vector3(Random.Range(-ScreenSizeX, ScreenSizeX), Random.Range(-ScreenSizeY, ScreenSizeY));
+        }
+    }
+
+    // Called in Movement();
     private void LaunchIfLost()
     {
         if (ButtonMasherObject.GetComponent<ButtonMasher>().WinningPlayer != null)
@@ -164,7 +212,7 @@ public class ParachuteController : MonoBehaviour
             if (ButtonMasherObject.GetComponent<ButtonMasher>().WinningPlayer == m_playerWhoCollected)
             {
                 // WIN CONDITION
-
+                // Animation
             }
             else
             {

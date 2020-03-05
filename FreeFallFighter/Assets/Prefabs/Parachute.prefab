@@ -220,9 +220,16 @@ MonoBehaviour:
   DecelerationTime: 2
   MaxSpeed: 2.5
   MinSpeed: 0.5
+  AddedLaunchSpeed: 1
+  EnteringSpeed: 2
   PositionResetRange: 0.1
+  SlowDownRange: 3.5
+  PositionOffsetWhileCollected: 0.5
   ScreenSizeX: 4.8
   ScreenSizeY: 3.5
+  ButtonMasherObject: {fileID: 0}
+  Player01: {fileID: 0}
+  Player02: {fileID: 0}
   m_collected: 0
 --- !u!95 &1006141226
 Animator:
