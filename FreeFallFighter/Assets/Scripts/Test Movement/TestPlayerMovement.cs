@@ -88,73 +88,28 @@ public class TestPlayerMovement : MonoBehaviour
 
     private void Update()
     {
-
         CollectInput();
-        FlipSprite();
+        DirectionDirector();
         Movement();
 
-        // MECHNANICS
-        Peck();
-        WingAttack();
-        Poop();
-
+        // MECHNANICS //
+        WingDash();
+        //Peck();
+        //Poop();
     }
 
     private void CollectInput()
     {
-
-
         if (PlayerNum == 1)
         {
             m_directionalInput = new Vector2(Input.GetAxis("Player1Movement"), Input.GetAxis("Player1Upwards"));
-
-
         }
         if (PlayerNum == 2)
         {
             m_directionalInput = new Vector2(Input.GetAxis("Player2Movement"), Input.GetAxis("Player2Upwards"));
-
-
-        }
-
-
-
-    }
-    void Peck()// add knockback 
-    {
-        if (PlayerNum == 1 && Input.GetButtonDown("Player1Peck") && peckActive)
-        {
-            if (m_facingRight && PlayerNum == 1)
-            {
-
-                player2rb.AddForce(transform.right * force, ForceMode2D.Impulse);
-            }
-            else if (!m_facingRight && PlayerNum == 1)
-            {
-
-                player2rb.AddForce(-transform.right * force, ForceMode2D.Impulse);
-            }
-            player2SpriteRenderer.color = Color.red;
-            //otherRb.AddForce(transform.right * 1);
-            StartCoroutine("WaitAndChangeColor2");
-        }
-        if (PlayerNum == 2 && Input.GetButtonDown("Player2Peck") && peckActive)
-        {
-            if (m_facingRight && PlayerNum == 2)
-            {
-
-                player1rb.AddForce(transform.right * force, ForceMode2D.Impulse);
-            }
-            else if (!m_facingRight && PlayerNum == 2)
-            {
-                player1rb.AddForce(-transform.right * force, ForceMode2D.Impulse);
-                //player1rb.AddForce(-transform.right * force);
-            }
-            player1SpriteRenderer.color = Color.red;
-
-            StartCoroutine("WaitAndChangeColor1");
         }
     }
+    
 
     IEnumerator WaitAndChangeColor1()
     {
@@ -172,41 +127,14 @@ public class TestPlayerMovement : MonoBehaviour
         print("it works");
         player2SpriteRenderer.color = Color.white;
     }
-    void Poop() // add a cooldown and color
-    {
+    
 
-        if (PlayerNum == 1 && Input.GetButtonDown("Player1Poop"))
-        {
-            poops = Instantiate(poop, transform.position, Quaternion.identity);
-            Destroy(poops, 3f);
-        }
-
-
-        if (PlayerNum == 2 && Input.GetButtonDown("Player2Poop"))
-        {
-            poops = Instantiate(poop, transform.position, Quaternion.identity);
-            Destroy(poops, 3f);
-        }
-
-        if (poops != null && PlayerNum == 1)
-        {
-            poops.transform.position = Vector2.MoveTowards(poops.transform.position, player2.transform.position, poopChaseSpeed * Time.deltaTime);
-
-
-        }
-
-        if (poops != null && PlayerNum == 2)
-        {
-            poops.transform.position = Vector2.MoveTowards(poops.transform.position, player1.transform.position, poopChaseSpeed * Time.deltaTime);
-        }
-    }
-
-    void WingAttack()
+    void WingDash()
     {
         //print(endPos);
         //print(Input.GetAxis("Player1Upwards"));
 
-        if(PlayerNum == 1)
+        if (PlayerNum == 1)
         {
             if (Input.GetButton("Player1WingAttack"))
             {
@@ -234,7 +162,7 @@ public class TestPlayerMovement : MonoBehaviour
 
 
                 player1.transform.position = Vector3.MoveTowards(player1.transform.position, endPos, dashSpeed);
-                
+
 
 
                 Invoke("ChangeCollider1", timer);
@@ -242,8 +170,8 @@ public class TestPlayerMovement : MonoBehaviour
 
             }
         }
-        
-        if(PlayerNum == 2)
+
+        if (PlayerNum == 2)
         {
             if (Input.GetButton("Player2WingAttack"))
             {
@@ -271,7 +199,7 @@ public class TestPlayerMovement : MonoBehaviour
 
 
                 player2.transform.position = Vector3.MoveTowards(player2.transform.position, endPos, dashSpeed);
-                
+
 
 
                 Invoke("ChangeCollider2", timer);
@@ -280,25 +208,25 @@ public class TestPlayerMovement : MonoBehaviour
             }
         }
 
-        
+
     }
     void ChangeCollider1()
     {
         player1Collider.isTrigger = false;
         player1SpriteRenderer.color = greyColor;
-        
+
     }
     void ChangeCollider2()
     {
         player2Collider.isTrigger = false;
         player2SpriteRenderer.color = greyColor;
-        
+
     }
 
 
-    private void FlipSprite()
+    private void DirectionDirector()
     {
-        if( m_directionalInput.x < 0)
+        if (m_directionalInput.x < 0)
         {
             ValX = 1;
         }
@@ -391,25 +319,72 @@ public class TestPlayerMovement : MonoBehaviour
                 m_initialVelocity = m_finalVelocity;
             }
         }
-
-
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (PlayerNum == 1 && collision.gameObject.tag == "Parachute")
-        {
-            //print("collide");
-            //add the button mashing scene
-
-        }
-        if (PlayerNum == 2 && collision.gameObject.tag == "Parachute")
-        {
-            //print("collide");
-            //add the button mashing scene
-
-        }
-
-
     }
 
+    //// REMOVED MECHANICS ////
+
+    //void Peck()// add knockback 
+    //{
+    //    if (PlayerNum == 1 && Input.GetButtonDown("Player1Peck") && peckActive)
+    //    {
+    //        if (m_facingRight && PlayerNum == 1)
+    //        {
+
+    //            player2rb.AddForce(transform.right * force, ForceMode2D.Impulse);
+    //        }
+    //        else if (!m_facingRight && PlayerNum == 1)
+    //        {
+
+    //            player2rb.AddForce(-transform.right * force, ForceMode2D.Impulse);
+    //        }
+    //        player2SpriteRenderer.color = Color.red;
+    //        //otherRb.AddForce(transform.right * 1);
+    //        StartCoroutine("WaitAndChangeColor2");
+    //    }
+    //    if (PlayerNum == 2 && Input.GetButtonDown("Player2Peck") && peckActive)
+    //    {
+    //        if (m_facingRight && PlayerNum == 2)
+    //        {
+
+    //            player1rb.AddForce(transform.right * force, ForceMode2D.Impulse);
+    //        }
+    //        else if (!m_facingRight && PlayerNum == 2)
+    //        {
+    //            player1rb.AddForce(-transform.right * force, ForceMode2D.Impulse);
+    //            //player1rb.AddForce(-transform.right * force);
+    //        }
+    //        player1SpriteRenderer.color = Color.red;
+
+    //        StartCoroutine("WaitAndChangeColor1");
+    //    }
+    //}
+
+    //void Poop() // add a cooldown and color
+    //{
+
+    //    if (PlayerNum == 1 && Input.GetButtonDown("Player1Poop"))
+    //    {
+    //        poops = Instantiate(poop, transform.position, Quaternion.identity);
+    //        Destroy(poops, 3f);
+    //    }
+
+
+    //    if (PlayerNum == 2 && Input.GetButtonDown("Player2Poop"))
+    //    {
+    //        poops = Instantiate(poop, transform.position, Quaternion.identity);
+    //        Destroy(poops, 3f);
+    //    }
+
+    //    if (poops != null && PlayerNum == 1)
+    //    {
+    //        poops.transform.position = Vector2.MoveTowards(poops.transform.position, player2.transform.position, poopChaseSpeed * Time.deltaTime);
+
+
+    //    }
+
+    //    if (poops != null && PlayerNum == 2)
+    //    {
+    //        poops.transform.position = Vector2.MoveTowards(poops.transform.position, player1.transform.position, poopChaseSpeed * Time.deltaTime);
+    //    }
+    //}
 }
