@@ -1571,7 +1571,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.6245503, y: -0.16428185}
+  m_Offset: {x: 1.6245503, y: 2.236136}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1582,7 +1582,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 12.974223, y: 2.9713707}
+  m_Size: {x: 12.974223, y: 7.7722063}
   m_EdgeRadius: 0
 --- !u!4 &869382429
 Transform:
@@ -1592,7 +1592,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 869382427}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2430794, y: -15.9, z: 1}
+  m_LocalPosition: {x: -1.2430794, y: -14.1, z: 1}
   m_LocalScale: {x: 0.6808047, y: 0.6896551, z: 1}
   m_Children: []
   m_Father: {fileID: 6705486859383051565}
@@ -1858,11 +1858,36 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 5132196010304115835, guid: 4b206f9232033bd4099e1520aa086c0d,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.9503419
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132196010304115835, guid: 4b206f9232033bd4099e1520aa086c0d,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.990566
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132196010304115835, guid: 4b206f9232033bd4099e1520aa086c0d,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5132196010304115831, guid: 4b206f9232033bd4099e1520aa086c0d,
         type: 3}
       propertyPath: ButtonMasherObject
       value: 
       objectReference: {fileID: 1888030968}
+    - target: {fileID: 5132196010304115831, guid: 4b206f9232033bd4099e1520aa086c0d,
+        type: 3}
+      propertyPath: Player01
+      value: 
+      objectReference: {fileID: 564023382}
+    - target: {fileID: 5132196010304115831, guid: 4b206f9232033bd4099e1520aa086c0d,
+        type: 3}
+      propertyPath: Player02
+      value: 
+      objectReference: {fileID: 1145073729}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b206f9232033bd4099e1520aa086c0d, type: 3}
 --- !u!1 &1145073729 stripped

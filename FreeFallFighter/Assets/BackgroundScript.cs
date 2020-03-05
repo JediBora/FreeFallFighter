@@ -44,15 +44,23 @@ public class BackgroundScript : MonoBehaviour
         {
             skyDone = true;
             caveDone = true;
-            //sky.SetActive(false);
-            //clouds.SetActive(false);
+            
             cave.SetActive(true);
         }
 
         if (caveDone)
         {
+            StartCoroutine("DelayClouds");
             cave.transform.Translate(Vector3.up * caveScrollSpeed);
         }
-    }
 
+    }
+    IEnumerator DelayClouds()
+    {
+        yield return new WaitForSeconds(2);
+        
+        sky.SetActive(false);
+        clouds.SetActive(false);
+
+    }
 }

@@ -15,6 +15,7 @@ public class InGameUI : MonoBehaviour
     public Slider sliderProgress;
     public bool TimerOn = true;
 
+
     void Start()
     {
 
@@ -32,6 +33,13 @@ public class InGameUI : MonoBehaviour
             Player1MeterNumber += 0.1f;
             Player1Meter.GetComponent<Scrollbar>().size = Player1MeterNumber;
         }
+
+
+    }
+
+    public void OnSelect(BaseEventData eventData)
+    {
+        Debug.Log(this.gameObject.name + "this was selected");
 
     }
 
@@ -65,7 +73,11 @@ public class InGameUI : MonoBehaviour
         if (TimerOn == true)
         {
             timeLeft -= Time.deltaTime;
+
             timestartText.text = (timeLeft).ToString("0");
+
+            startText.text = (timeLeft).ToString("0");
+
             if (timeLeft < 0)
             {
                 TimerOn = false;
