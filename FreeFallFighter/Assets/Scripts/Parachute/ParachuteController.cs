@@ -16,7 +16,7 @@ public class ParachuteController : MonoBehaviour
     private float AddedLaunchSpeed = 1f;
     [SerializeField]
     private float EnteringSpeed = 1f;
-    
+
     [SerializeField]
     private float PositionResetRange = 0.1f;
     [SerializeField]
@@ -42,14 +42,15 @@ public class ParachuteController : MonoBehaviour
     public GameObject Player02;
 
     private GameObject m_playerWhoCollected;
+    private GameObject m_playerWhoCollectedLast;
     private SpriteRenderer m_spriteRenderer;
 
     private float m_initialVelocity;
-    private float m_finalVelocity;   
+    private float m_finalVelocity;
 
     private Vector2 m_parachuteToNextPosition;
     private Vector2 m_lastDirection;
-    private Vector3 m_nextPosition;  
+    private Vector3 m_nextPosition;
     private Vector3 m_directionOpposite;
 
     private bool m_nextPositionReached;
@@ -96,7 +97,7 @@ public class ParachuteController : MonoBehaviour
         }
         else
         {
-            Debug.Log("NO player is close");
+            Debug.LogError("NO player is close");
         }
 
         m_parachuteToNextPosition = m_directionOpposite;
@@ -105,7 +106,7 @@ public class ParachuteController : MonoBehaviour
     private void Movement()
     {
         if (!m_collected)
-        {            
+        {
             if (m_startPositionReached)
             {
                 //Debug.Log($"DistanceBetweenPlayers: {m_parachuteToNextPosition.magnitude}" + $" Slow Down Range: {SlowDownRange}");
@@ -207,7 +208,7 @@ public class ParachuteController : MonoBehaviour
     {
         if (ButtonMasherObject.GetComponent<ButtonMasher>().WinningPlayer != null)
         {
-            ButtonMasherObject.GetComponent<ButtonMasher>().ActivateObject(false);
+            ButtonMasherObject.GetComponent<ButtonMasher>().ActivateObject(false, m_playerWhoCollected);
 
             if (ButtonMasherObject.GetComponent<ButtonMasher>().WinningPlayer == m_playerWhoCollected)
             {
@@ -224,19 +225,26 @@ public class ParachuteController : MonoBehaviour
 
                 // Set to false so that Movement returns
                 m_collected = false;
-            }           
+            }
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.tag == "Player1" || other.tag == "Player2")
+        if (other.gameObject.tag == "Player1" || other.gameObject.tag == "Player2")
         {
             m_playerWhoCollected = other.gameObject;
             m_spriteRenderer.color = Color.white;
             m_collected = true;
 
-            ButtonMasherObject.GetComponent<ButtonMasher>().ActivateObject(true);
+            if (m_playerWhoCollectedLast != null)
+            {
+                ButtonMasherObject.GetComponent<ButtonMasher>().ActivateObject(false, m_playerWhoCollectedLast);
+            }
+            
+            ButtonMasherObject.GetComponent<ButtonMasher>().ActivateObject(true, m_playerWhoCollected);       
+
+            m_playerWhoCollectedLast = m_playerWhoCollected;
         }
     }
 }

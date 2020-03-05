@@ -138,7 +138,7 @@ public class TestPlayerMovement : MonoBehaviour
         {
             if (Input.GetButton("Player1WingAttack"))
             {
-                player1Collider.isTrigger = true;
+                //player1Collider.isTrigger = true;
                 player1SpriteRenderer.color = Color.white;
                 startPos = player1.transform.position;
 
@@ -165,7 +165,7 @@ public class TestPlayerMovement : MonoBehaviour
 
 
 
-                Invoke("ChangeCollider1", timer);
+                //Invoke("ChangeCollider1", timer);
 
 
             }
@@ -175,7 +175,7 @@ public class TestPlayerMovement : MonoBehaviour
         {
             if (Input.GetButton("Player2WingAttack"))
             {
-                player2Collider.isTrigger = true;
+                //player2Collider.isTrigger = true;
                 player2SpriteRenderer.color = Color.white;
                 startPos = player2.transform.position;
 
@@ -202,7 +202,7 @@ public class TestPlayerMovement : MonoBehaviour
 
 
 
-                Invoke("ChangeCollider2", timer);
+                //Invoke("ChangeCollider2", timer);
 
 
             }
