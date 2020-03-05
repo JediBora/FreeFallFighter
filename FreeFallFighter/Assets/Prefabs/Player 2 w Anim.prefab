@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 7162828683701742954, guid: 2a56be1d322efaf40892e0a59430732b,
+  m_Sprite: {fileID: 8499883108745290142, guid: 014a4222bf8515042b3565e90d4272c1,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -92,7 +92,7 @@ Animator:
   m_GameObject: {fileID: 8962610862828310498}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 63f7f60cc14986941a862dfe65f51ea0, type: 2}
+  m_Controller: {fileID: 9100000, guid: f28314651cf552b4b80db8a90ced529b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

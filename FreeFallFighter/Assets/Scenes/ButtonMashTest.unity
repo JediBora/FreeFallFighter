@@ -952,6 +952,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1 w Anim
       objectReference: {fileID: 0}
+    - target: {fileID: 564023383, guid: 839e608a38c723848b71272a948f326b, type: 3}
+      propertyPath: parachute
+      value: 
+      objectReference: {fileID: 962742147}
+    - target: {fileID: 564023383, guid: 839e608a38c723848b71272a948f326b, type: 3}
+      propertyPath: player2
+      value: 
+      objectReference: {fileID: 1145073729}
+    - target: {fileID: 564023383, guid: 839e608a38c723848b71272a948f326b, type: 3}
+      propertyPath: player2SpriteRenderer
+      value: 
+      objectReference: {fileID: 249658001}
+    - target: {fileID: 564023383, guid: 839e608a38c723848b71272a948f326b, type: 3}
+      propertyPath: player2Collider
+      value: 
+      objectReference: {fileID: 1145073733}
+    - target: {fileID: 564023383, guid: 839e608a38c723848b71272a948f326b, type: 3}
+      propertyPath: player2rb
+      value: 
+      objectReference: {fileID: 1145073732}
     - target: {fileID: 5386907487255677861, guid: 839e608a38c723848b71272a948f326b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1027,26 +1047,6 @@ PrefabInstance:
       propertyPath: p2script
       value: 
       objectReference: {fileID: 1145073731}
-    - target: {fileID: 564023383, guid: 839e608a38c723848b71272a948f326b, type: 3}
-      propertyPath: parachute
-      value: 
-      objectReference: {fileID: 962742147}
-    - target: {fileID: 564023383, guid: 839e608a38c723848b71272a948f326b, type: 3}
-      propertyPath: player2
-      value: 
-      objectReference: {fileID: 1145073729}
-    - target: {fileID: 564023383, guid: 839e608a38c723848b71272a948f326b, type: 3}
-      propertyPath: player2SpriteRenderer
-      value: 
-      objectReference: {fileID: 249658001}
-    - target: {fileID: 564023383, guid: 839e608a38c723848b71272a948f326b, type: 3}
-      propertyPath: player2Collider
-      value: 
-      objectReference: {fileID: 1145073733}
-    - target: {fileID: 564023383, guid: 839e608a38c723848b71272a948f326b, type: 3}
-      propertyPath: player2rb
-      value: 
-      objectReference: {fileID: 1145073732}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 839e608a38c723848b71272a948f326b, type: 3}
 --- !u!1 &962742147 stripped
@@ -1216,6 +1216,16 @@ PrefabInstance:
       propertyPath: ButtonMasherObject
       value: 
       objectReference: {fileID: 1888030968}
+    - target: {fileID: 5132196010304115831, guid: 4b206f9232033bd4099e1520aa086c0d,
+        type: 3}
+      propertyPath: Player01
+      value: 
+      objectReference: {fileID: 564023382}
+    - target: {fileID: 5132196010304115831, guid: 4b206f9232033bd4099e1520aa086c0d,
+        type: 3}
+      propertyPath: Player02
+      value: 
+      objectReference: {fileID: 1145073729}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b206f9232033bd4099e1520aa086c0d, type: 3}
 --- !u!1 &1145073729 stripped
