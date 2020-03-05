@@ -203,7 +203,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2128956349}
+      - m_Target: {fileID: 1786099354}
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -373,7 +373,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 164}
+  m_AnchoredPosition: {x: 0, y: 151}
   m_SizeDelta: {x: 500, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &664030924
@@ -663,7 +663,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2128956349}
+      - m_Target: {fileID: 1786099354}
         m_MethodName: LoadGame
         m_Mode: 1
         m_Arguments:
@@ -913,7 +913,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1607857602}
   m_CullTransparentMesh: 0
---- !u!1 &1701360273
+--- !u!1 &1693905639
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -921,89 +921,27 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1701360277}
-  - component: {fileID: 1701360276}
-  - component: {fileID: 1701360275}
-  - component: {fileID: 1701360274}
+  - component: {fileID: 1693905640}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &1701360274
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1701360273}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1701360275
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1701360273}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &1701360276
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1701360273}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1701360277
+--- !u!4 &1693905640
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1701360273}
+  m_GameObject: {fileID: 1693905639}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 628, y: 186.83548, z: 0}
+  m_LocalPosition: {x: 298, y: 362, z: -9.125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1786099353
 PrefabInstance:
@@ -1012,16 +950,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: PlayerWins
+      value: 
+      objectReference: {fileID: 664030924}
     - target: {fileID: 1103633402228160293, guid: dad9298748ff1d6498cd7b2885b09905,
         type: 3}
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
-    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
-        type: 3}
-      propertyPath: PlayerWins
-      value: 
-      objectReference: {fileID: 664030924}
     - target: {fileID: 1103633402228160295, guid: dad9298748ff1d6498cd7b2885b09905,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1060,7 +997,7 @@ PrefabInstance:
     - target: {fileID: 1103633402228160295, guid: dad9298748ff1d6498cd7b2885b09905,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1103633402228160295, guid: dad9298748ff1d6498cd7b2885b09905,
         type: 3}
@@ -1079,15 +1016,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dad9298748ff1d6498cd7b2885b09905, type: 3}
---- !u!114 &2128956349 stripped
+--- !u!114 &1786099354 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
+  m_CorrespondingSourceObject: {fileID: 3067521407501768039, guid: dad9298748ff1d6498cd7b2885b09905,
     type: 3}
   m_PrefabInstance: {fileID: 1786099353}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1969394180}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e47f26478dfc1e45893d159ac20b367, type: 3}
+  m_Script: {fileID: 11500000, guid: c3cae6966dae09043b764f30724bf72d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1969394180 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1103633402228160293, guid: dad9298748ff1d6498cd7b2885b09905,
+    type: 3}
+  m_PrefabInstance: {fileID: 1786099353}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1969394182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969394180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de825fd229856245b7788a2ba4c5b3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerWins: {fileID: 664030924}
+  playerWinsGO: {fileID: 664030922}
+  startPos: {x: 298, y: 600, z: 0}
+  endPos: {x: 298, y: 150, z: 0}
+  speed: 1
+  playAgain: {fileID: 1041798317}
+  quit: {fileID: 483009694}

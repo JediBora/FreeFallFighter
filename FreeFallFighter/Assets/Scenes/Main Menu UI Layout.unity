@@ -402,7 +402,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -30, y: 7}
+  m_AnchoredPosition: {x: -30, y: -33}
   m_SizeDelta: {x: 150, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1107668052
@@ -449,19 +449,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1120846841}
+      - m_Target: {fileID: 1828154568}
         m_MethodName: CharacterSelect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1120846841}
-        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -531,16 +520,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1120846841 stripped
+--- !u!114 &1828154568 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
+  m_CorrespondingSourceObject: {fileID: 3067521407501768039, guid: dad9298748ff1d6498cd7b2885b09905,
     type: 3}
   m_PrefabInstance: {fileID: 1103633401134347485}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e47f26478dfc1e45893d159ac20b367, type: 3}
+  m_Script: {fileID: 11500000, guid: c3cae6966dae09043b764f30724bf72d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1973384099
@@ -717,46 +706,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
-    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
-        type: 3}
-      propertyPath: textToUse
-      value: 
-      objectReference: {fileID: 1050637673}
-    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
-        type: 3}
-      propertyPath: useThisText
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
-        type: 3}
-      propertyPath: useThisTextText
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
-        type: 3}
-      propertyPath: flashingString
-      value: Play
-      objectReference: {fileID: 0}
-    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
-        type: 3}
-      propertyPath: blinkingTimer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
-        type: 3}
-      propertyPath: PlayerWins
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
-        type: 3}
-      propertyPath: blinkingText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
-        type: 3}
-      propertyPath: TimerOn
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1103633402228160295, guid: dad9298748ff1d6498cd7b2885b09905,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -810,6 +759,46 @@ PrefabInstance:
     - target: {fileID: 1103633402228160295, guid: dad9298748ff1d6498cd7b2885b09905,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
+        type: 3}
+      propertyPath: textToUse
+      value: 
+      objectReference: {fileID: 1050637673}
+    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
+        type: 3}
+      propertyPath: useThisText
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
+        type: 3}
+      propertyPath: useThisTextText
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
+        type: 3}
+      propertyPath: flashingString
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
+        type: 3}
+      propertyPath: blinkingTimer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
+        type: 3}
+      propertyPath: PlayerWins
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
+        type: 3}
+      propertyPath: blinkingText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
+        type: 3}
+      propertyPath: TimerOn
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
