@@ -17,10 +17,6 @@ public class MainMenuUI : MonoBehaviour, ISelectHandler
     public bool TimerOn = true;
     public Text PlayerWins;
 
-    public Text blinkingText;
-    public float blinkingTimer = 0f;
-    public Button selected;
-
     void Start()
     {
         
@@ -29,16 +25,29 @@ public class MainMenuUI : MonoBehaviour, ISelectHandler
     void Update()
     {
         Timer();
-        Blink();
-        //Debug.Log("Woring");
 
         sliderNumber += 1f;
         sliderProgress.GetComponent<Slider>().value = timeLeft;
+        PlayerWins.GetComponent<Text>();
 
-        if(Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
             Player1MeterNumber += 0.1f;
             Player1Meter.GetComponent<Scrollbar>().size = Player1MeterNumber;
+        }
+
+        else if (Input.GetButtonDown("Fire1"))
+        {
+            Debug.Log("Player 1");
+            PlayerWins.text = "Player 1 Wins";
+            PlayerWins.color = Color.red;
+        }
+
+        else if (Input.GetButtonDown("Fire2"))
+        {
+            Debug.Log("Player 2");
+            PlayerWins.text = "Player 2 Wins";
+            PlayerWins.color = Color.blue;
         }
 
     }
@@ -46,25 +55,6 @@ public class MainMenuUI : MonoBehaviour, ISelectHandler
     public void OnSelect (BaseEventData eventData)
     {
         Debug.Log(this.gameObject.name + "this was selected");
-    }
-
-    public void Blink()
-    {
-
-        //Debug.Log("Wokring");
-
-        blinkingTimer += Time.deltaTime;
-
-        if (blinkingTimer >= 0.5)
-        {
-            blinkingText.GetComponent<Text>().enabled = true;
-        }
-
-        if (blinkingTimer >= 1)
-        {
-            blinkingText.GetComponent<Text>().enabled = false;
-            blinkingTimer = 0;
-        }
     }
 
     public void LoadGame()
