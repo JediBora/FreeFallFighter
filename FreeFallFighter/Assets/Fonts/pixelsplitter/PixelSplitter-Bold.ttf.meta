@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1a0baca2e6d56d94d9898e53e9bbaa3e
+guid: ea3dffebdc96b8a4cb4238f98f65120a
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Pixelmania
+  fontName: PixelSplitter
   fontNames:
-  - Pixelmania
+  - PixelSplitter
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

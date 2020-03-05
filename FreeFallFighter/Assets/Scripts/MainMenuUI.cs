@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class MainMenuUI : MonoBehaviour
+public class MainMenuUI : MonoBehaviour, ISelectHandler
 {
 
     public float timeLeft = 3.0f;
@@ -18,6 +19,7 @@ public class MainMenuUI : MonoBehaviour
 
     public Text blinkingText;
     public float blinkingTimer = 0f;
+    public Button selected;
 
     void Start()
     {
@@ -28,12 +30,12 @@ public class MainMenuUI : MonoBehaviour
     {
         Timer();
         Blink();
-        Debug.Log("Woring");
+        //Debug.Log("Woring");
 
         sliderNumber += 1f;
         sliderProgress.GetComponent<Slider>().value = timeLeft;
 
-        if (Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Jump"))
         {
             Player1MeterNumber += 0.1f;
             Player1Meter.GetComponent<Scrollbar>().size = Player1MeterNumber;
@@ -41,10 +43,15 @@ public class MainMenuUI : MonoBehaviour
 
     }
 
+    public void OnSelect (BaseEventData eventData)
+    {
+        Debug.Log(this.gameObject.name + "this was selected");
+    }
+
     public void Blink()
     {
 
-        Debug.Log("Wokring");
+        //Debug.Log("Wokring");
 
         blinkingTimer += Time.deltaTime;
 
