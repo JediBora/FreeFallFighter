@@ -5,19 +5,27 @@ using UnityEngine.UI;
 
 
 public class GameOverUI : MonoBehaviour
-{
-
+{ 
     public Text PlayerWins;
+    public GameObject playerWinsGO;
+    public float endPos;
+    public GameObject playAgain;
+    public GameObject quit;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerWinsGO.GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (endPos >= 150)
+        {
+            playerWinsGO.transform.Translate(-Vector3.up * 50 * Time.deltaTime);
+        }
+
         if (Input.GetButtonDown("Fire1"))
         {
             Debug.Log("Player 1");
