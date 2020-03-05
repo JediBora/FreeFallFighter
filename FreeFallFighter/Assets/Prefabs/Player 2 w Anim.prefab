@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8962610862828310496}
   - component: {fileID: 984244680}
   m_Layer: 0
-  m_Name: Sprite
+  m_Name: Player2Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 7162828683701742954, guid: 2a56be1d322efaf40892e0a59430732b,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -112,9 +112,8 @@ GameObject:
   - component: {fileID: 8962610863134654384}
   - component: {fileID: 8962610863134654385}
   - component: {fileID: 8962610863134654386}
-  - component: {fileID: 8962610863134654387}
   - component: {fileID: 315235710}
-  - component: {fileID: 315235709}
+  - component: {fileID: 1145073731}
   m_Layer: 0
   m_Name: Player 2 w Anim
   m_TagString: Player2
@@ -175,7 +174,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8962610863134654348}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -188,35 +187,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &8962610863134654387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8962610863134654348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c999603b9738cb14ab13ddaed1f78d2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  collider: {fileID: 8962610863134654385}
-  m_MovementSmoothing: 0.05
-  timer: 4
-  force: 10
-  facingRight: 1
-  poop: {fileID: 512322737661398852, guid: 290f7f960468d7c43b676be330f0a170, type: 3}
-  parachute: {fileID: 0}
-  otherPlayer: {fileID: 0}
-  otherPlayerSprite: {fileID: 0}
-  playerSprite: {fileID: 8962610862828310498}
-  chaseSpeed: 4
-  deployPoop: 0
-  dashing: 0
-  dashSpeed: 0.25
-  peckActive: 0
-  greyColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &315235710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,7 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNum: 2
---- !u!114 &315235709
+--- !u!114 &1145073731
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -244,11 +214,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerNum: 2
   FloatDirection: {x: 0, y: 1}
-  FloatSpeed: 1
+  FloatSpeed: 1.5
   AccelerationTime: 1
-  DecelerationTime: 1
-  MaxSpeed: 1
-  MinSpeed: 0
+  DecelerationTime: 3
+  MaxSpeed: 4
+  MinSpeed: 1
+  poop: {fileID: 512322737661398852, guid: 290f7f960468d7c43b676be330f0a170, type: 3}
+  parachute: {fileID: 0}
+  player1: {fileID: 0}
+  player2: {fileID: 8962610863134654348}
+  dashing: 0
+  peckActive: 0
+  dashSpeed: 0.4
+  poopChaseSpeed: 4
+  timer: 4
+  force: 2
+  player1SpriteRenderer: {fileID: 0}
+  player2SpriteRenderer: {fileID: 8962610862828310496}
+  greyColor: {r: 1, g: 1, b: 1, a: 1}
+  player1Collider: {fileID: 0}
+  player2Collider: {fileID: 8962610863134654385}
+  player1rb: {fileID: 0}
+  player2rb: {fileID: 8962610863134654386}
+  stunned: 0
 --- !u!1 &8962610863916325681
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8962610863916325680}
   - component: {fileID: 8962610863916325686}
-  - component: {fileID: 8962610863916325687}
+  - component: {fileID: 321646557}
   m_Layer: 0
   m_Name: 'Left Beak '
   m_TagString: Untagged
@@ -307,7 +295,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.99999994}
   m_EdgeRadius: 0
---- !u!114 &8962610863916325687
+--- !u!114 &321646557
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -316,10 +304,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8962610863916325681}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bc8c5922e6fd6f45bd2b71355e31891, type: 3}
+  m_Script: {fileID: 11500000, guid: 1dcf233c46af09e45aa25f29067b8dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p2script: {fileID: 8962610863134654387}
+  p1script: {fileID: 0}
+  p2script: {fileID: 1145073731}
 --- !u!1 &8962610864155386716
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,7 +319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8962610864155386691}
   - component: {fileID: 8962610864155386689}
-  - component: {fileID: 8962610864155386690}
+  - component: {fileID: 2039215501}
   m_Layer: 0
   m_Name: Up Beak
   m_TagString: Untagged
@@ -378,7 +367,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.99999994}
   m_EdgeRadius: 0
---- !u!114 &8962610864155386690
+--- !u!114 &2039215501
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -387,10 +376,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8962610864155386716}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bc8c5922e6fd6f45bd2b71355e31891, type: 3}
+  m_Script: {fileID: 11500000, guid: 1dcf233c46af09e45aa25f29067b8dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p2script: {fileID: 8962610863134654387}
+  p1script: {fileID: 0}
+  p2script: {fileID: 1145073731}
 --- !u!1 &8962610864337498923
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,7 +391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8962610864337498922}
   - component: {fileID: 8962610864337498920}
-  - component: {fileID: 8962610864337498921}
+  - component: {fileID: 392160105}
   m_Layer: 0
   m_Name: Right Beak
   m_TagString: Untagged
@@ -449,7 +439,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.99999994}
   m_EdgeRadius: 0
---- !u!114 &8962610864337498921
+--- !u!114 &392160105
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -458,10 +448,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8962610864337498923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bc8c5922e6fd6f45bd2b71355e31891, type: 3}
+  m_Script: {fileID: 11500000, guid: 1dcf233c46af09e45aa25f29067b8dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p2script: {fileID: 8962610863134654387}
+  p1script: {fileID: 0}
+  p2script: {fileID: 1145073731}
 --- !u!1 &8962610864914079037
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,7 +463,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8962610864914079036}
   - component: {fileID: 8962610864914079010}
-  - component: {fileID: 8962610864914079011}
+  - component: {fileID: 1496780840}
   m_Layer: 0
   m_Name: 'Down Beak '
   m_TagString: Untagged
@@ -520,7 +511,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.99999994}
   m_EdgeRadius: 0
---- !u!114 &8962610864914079011
+--- !u!114 &1496780840
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -529,7 +520,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8962610864914079037}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bc8c5922e6fd6f45bd2b71355e31891, type: 3}
+  m_Script: {fileID: 11500000, guid: 1dcf233c46af09e45aa25f29067b8dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p2script: {fileID: 8962610863134654387}
+  p1script: {fileID: 0}
+  p2script: {fileID: 1145073731}
