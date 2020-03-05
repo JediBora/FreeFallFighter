@@ -297,10 +297,10 @@ InputManager:
     m_Name: Player2Movement
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: a
-    positiveButton: d
-    altNegativeButton: 
-    altPositiveButton: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: d
+    altPositiveButton: g
     gravity: 3
     dead: 0.001
     sensitivity: 3
@@ -331,8 +331,8 @@ InputManager:
     descriptiveNegativeName: 
     negativeButton: s
     positiveButton: w
-    altNegativeButton: 
-    altPositiveButton: 
+    altNegativeButton: f
+    altPositiveButton: r
     gravity: 3
     dead: 0.001
     sensitivity: 3
@@ -347,8 +347,8 @@ InputManager:
     descriptiveNegativeName: 
     negativeButton: m
     positiveButton: m
-    altNegativeButton: 
-    altPositiveButton: 
+    altNegativeButton: x
+    altPositiveButton: x
     gravity: 3
     dead: 0.001
     sensitivity: 3
@@ -361,10 +361,10 @@ InputManager:
     m_Name: Player2WingAttack
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: e
-    positiveButton: e
-    altNegativeButton: 
-    altPositiveButton: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: '['
+    altPositiveButton: '['
     gravity: 3
     dead: 0.001
     sensitivity: 3
@@ -379,8 +379,8 @@ InputManager:
     descriptiveNegativeName: 
     negativeButton: ','
     positiveButton: ','
-    altNegativeButton: 
-    altPositiveButton: 
+    altNegativeButton: 5
+    altPositiveButton: 5
     gravity: 3
     dead: 0.001
     sensitivity: 3
@@ -395,8 +395,8 @@ InputManager:
     descriptiveNegativeName: 
     negativeButton: r
     positiveButton: r
-    altNegativeButton: 
-    altPositiveButton: 
+    altNegativeButton: 6
+    altPositiveButton: 6
     gravity: 3
     dead: 0.001
     sensitivity: 3
@@ -411,8 +411,8 @@ InputManager:
     descriptiveNegativeName: 
     negativeButton: .
     positiveButton: .
-    altNegativeButton: 
-    altPositiveButton: 
+    altNegativeButton: z
+    altPositiveButton: z
     gravity: 3
     dead: 0.001
     sensitivity: 3
@@ -427,8 +427,8 @@ InputManager:
     descriptiveNegativeName: 
     negativeButton: t
     positiveButton: t
-    altNegativeButton: 
-    altPositiveButton: 
+    altNegativeButton: e
+    altPositiveButton: e
     gravity: 3
     dead: 0.001
     sensitivity: 3
@@ -443,8 +443,8 @@ InputManager:
     descriptiveNegativeName: 
     negativeButton: p
     positiveButton: p
-    altNegativeButton: p
-    altPositiveButton: p
+    altNegativeButton: space
+    altPositiveButton: space
     gravity: 3
     dead: 0.001
     sensitivity: 3
