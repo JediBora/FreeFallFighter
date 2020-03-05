@@ -203,7 +203,7 @@ public class TestPlayerMovement : MonoBehaviour
 
     void WingAttack()
     {
-        print(endPos);
+        //print(endPos);
         //print(Input.GetAxis("Player1Upwards"));
 
         if(PlayerNum == 1)
@@ -398,13 +398,13 @@ public class TestPlayerMovement : MonoBehaviour
     {
         if (PlayerNum == 1 && collision.gameObject.tag == "Parachute")
         {
-            print("collide");
+            //print("collide");
             //add the button mashing scene
 
         }
         if (PlayerNum == 2 && collision.gameObject.tag == "Parachute")
         {
-            print("collide");
+            //print("collide");
             //add the button mashing scene
 
         }
