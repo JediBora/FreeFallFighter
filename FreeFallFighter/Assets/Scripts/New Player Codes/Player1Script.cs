@@ -24,7 +24,7 @@ public class Player1Script : MonoBehaviour
     public GameObject otherPlayerSprite;
     public GameObject playerSprite;
     public float poopChaseSpeed = 4;
-    public bool deployPoop = false;
+   
     public bool dashing = false;
     public float dashSpeed;
     private Vector3 startPos;
