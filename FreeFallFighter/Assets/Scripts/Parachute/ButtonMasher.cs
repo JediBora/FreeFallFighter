@@ -17,12 +17,22 @@ public class ButtonMasher : MonoBehaviour
     private float ValueDecrement;
     [SerializeField]
     private float ValueIncrementGate;
+    [SerializeField]
+    private int PlayerScore = 10;
 
     private float m_timeBetweenMash01;
     private float m_timeBetweenMash02;
 
     private float m_lastPressedTime01;
     private float m_lastPressedTime02;
+
+    private int player01ButtonAmount = 0;
+    private int player02ButtonAmount = 0;
+
+    public bool player01wins = false;
+    public bool player02wins = false;
+
+    public ParachuteController script;
 
     void Start()
     {
@@ -36,6 +46,9 @@ public class ButtonMasher : MonoBehaviour
         MashInputCollector();
         UpdateUIGauge();
         CheckForWin();
+
+        print(player01ButtonAmount);
+        print(player02ButtonAmount);
     }
 
     public void ActivateObject(bool state)
@@ -57,6 +70,10 @@ public class ButtonMasher : MonoBehaviour
 
         if (Input.GetButtonDown("Player1Mash"))
         {
+            if (script.m_collected)
+            {
+                player01ButtonAmount += 1;
+            }
             m_timeBetweenMash01 = currentTime - m_lastPressedTime01;
             //Debug.Log($"Time Between Mash Player 01: {m_timeBetweenMash01}");
 
@@ -68,6 +85,11 @@ public class ButtonMasher : MonoBehaviour
 
         if (Input.GetButtonDown("Player2Mash"))
         {
+            if (script.m_collected)
+            {
+                player02ButtonAmount += 1;
+            }
+
             m_timeBetweenMash02 = currentTime - m_lastPressedTime02;
             //Debug.Log($"Time Between Mash Player 02: {m_timeBetweenMash02}");
 
@@ -92,10 +114,17 @@ public class ButtonMasher : MonoBehaviour
             WinningPlayer = null;
         }
 
-        if (WinningPlayer != null)
+        if (script.m_collected && Player01 && player01ButtonAmount == PlayerScore)
         {
-            //Debug.Log($"{WinningPlayer.name} Wins");
+            
+            //print("player 1 wins");
+            player01wins = true;
         }
-        
+        if (script.m_collected && Player02 && player02ButtonAmount == PlayerScore)
+        {
+            // print("player 2 wins");
+            player02wins = true;
+
+        }
     }
 }

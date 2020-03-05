@@ -4,64 +4,55 @@ using UnityEngine;
 
 public class BackgroundScript : MonoBehaviour
 {
-    public float scrollSpeed = 5;
-    Vector2 startPos;
-    public float lengthOfRepeat;
+    public float cloudScrollSpeed = 5;
+    public float caveScrollSpeed = 5;
+    Vector2 startPosClouds;
+   // Vector2 startPosCave;
+    public float cloudLengthOfRepeat;
+   // public float caveLengthOfRepeat;
     public float timer;
     public GameObject sky;
+    public GameObject clouds;
     public GameObject cave;
-    public GameObject deepCave;
+
+
     bool skyDone = false;
     bool caveDone = false;
-    bool deepCaveDone = false;
+
+    public ButtonMasher script;
+
     // Start is called before the first frame update
     void Start()
     {
-        startPos = sky.transform.position;
+        startPosClouds = clouds.transform.position;
+        //startPosCave = cave.transform.position;
+      
     }
 
     // Update is called once per frame
     void Update()
     {
-        //timer += Time.deltaTime;
-        //if (!skyDone)
-        //{
-            float newPos = Mathf.Repeat(Time.time * scrollSpeed, lengthOfRepeat);
-            sky.transform.position = startPos + Vector2.up * newPos;
+        // timer += Time.deltaTime;
+        if (!skyDone)
+        {
+            float newPos = Mathf.Repeat(Time.time * cloudScrollSpeed, cloudLengthOfRepeat);
+            clouds.transform.position = startPosClouds + Vector2.up * newPos;
 
-        //}
-        /*  
-          if (timer >= 6)
-          {
-              skyDone = true;
-              sky.SetActive(false);
-              cave.SetActive(true);
+        }
 
-          }
-          if (!caveDone)
-          {
-              float newPos = Mathf.Repeat(Time.time * scrollSpeed, lengthOfRepeat);
-              cave.transform.position = startPos + Vector2.up * newPos;
+        if (script.player01wins || script.player02wins)
+        {
+            skyDone = true;
+            caveDone = true;
+            //sky.SetActive(false);
+            //clouds.SetActive(false);
+            cave.SetActive(true);
+        }
 
-          }
-          if (timer >= 12)
-          {
-              caveDone = true;
-              cave.SetActive(false);
-              deepCave.SetActive(true);
-          }
-          if (!deepCaveDone)
-          {
-              float newPos = Mathf.Repeat(Time.time * scrollSpeed, lengthOfRepeat);
-              deepCave.transform.position = startPos + Vector2.up * newPos;
-
-          }
-          if (timer >= 18)
-          {
-              //deepCaveDone = true;
-              //deepCave.SetActive(false);
-          }
-          */
+        if (caveDone)
+        {
+            cave.transform.Translate(Vector3.up * caveScrollSpeed);
+        }
     }
 
 }

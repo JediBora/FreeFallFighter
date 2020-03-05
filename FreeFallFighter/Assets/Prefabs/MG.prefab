@@ -43,9 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0df97e3cd205d654382e750be11d09fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 5
-  lengthOfRepeat: 10
+  cloudScrollSpeed: 3
+  caveScrollSpeed: 3
+  cloudLengthOfRepeat: 11.18
+  caveLengthOfRepeat: 19.5
   timer: 0
   sky: {fileID: 0}
+  clouds: {fileID: 0}
   cave: {fileID: 0}
-  deepCave: {fileID: 0}
+  script: {fileID: 0}
