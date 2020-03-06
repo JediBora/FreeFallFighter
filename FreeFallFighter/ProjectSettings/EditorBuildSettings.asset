@@ -8,13 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/ButtonMashTest.unity
     guid: bf49354bfd7db6d468fc29edd346b068
-  - enabled: 1
-    path: Assets/Scenes/WinStateTest.unity
-    guid: a6151697b696d0d4ea96e188f2e5d760
-  - enabled: 1
-    path: Assets/Scenes/GameOver.unity
-    guid: 0cbbf36593d22f64092c46819151be48
   m_configObjects: {}

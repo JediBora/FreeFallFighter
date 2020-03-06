@@ -52,3 +52,7 @@ MonoBehaviour:
   Player02Gauge: {fileID: 0}
   ValueDecrement: -0.05
   ValueIncrementGate: 0.2
+  PlayerScore: 10
+  player01wins: 0
+  player02wins: 0
+  script: {fileID: 0}
