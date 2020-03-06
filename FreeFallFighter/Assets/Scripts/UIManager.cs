@@ -8,12 +8,19 @@ public class UIManager : MonoBehaviour
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("In-Game UI Layout");
+        SceneManager.LoadScene("Main");
     }
 
     public void Quit()
     {
         Application.Quit();
+
+        if (Input.GetButtonDown("QuitGame"))
+        {
+
+            Application.Quit();
+        }
+
     }
 
     public void MainMenu()
@@ -29,6 +36,8 @@ public class UIManager : MonoBehaviour
     public void GameOver()
     {
         SceneManager.LoadScene("GameOver");
+
+      
     }
 
 }

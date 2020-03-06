@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class WinStateCode : MonoBehaviour
 {
-    public ButtonMasher script;
+    public ButtonMasher ButtonMasherScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,14 +20,14 @@ public class WinStateCode : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.gameObject.tag == "Player1" && script.player01wins)
+        if (collision.gameObject.tag == "Player1" && ButtonMasherScript.player01wins)
         {
             SceneManager.LoadScene("GameOver");
            print("player1 wins");
             
         }
 
-        if (collision.gameObject.tag == "Player2" && script.player02wins)
+        if (collision.gameObject.tag == "Player2" && ButtonMasherScript.player02wins)
         {
             SceneManager.LoadScene("GameOver");
            print("player2 wins");
