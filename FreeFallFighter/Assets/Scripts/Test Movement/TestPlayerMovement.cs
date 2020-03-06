@@ -27,7 +27,7 @@ public class TestPlayerMovement : MonoBehaviour
 
     private Vector3 m_movementTranslation;
 
-
+    public Vector3 shakeAmount;
 
     private float m_initialVelocity;
     private float m_finalVelocity;
@@ -42,6 +42,8 @@ public class TestPlayerMovement : MonoBehaviour
 
     public GameObject player1;
     public GameObject player2;
+
+    public GameObject mainCamera;
     //public GameObject player1Sprite;
     //public GameObject player2Sprite;
 
@@ -387,4 +389,13 @@ public class TestPlayerMovement : MonoBehaviour
     //        poops.transform.position = Vector2.MoveTowards(poops.transform.position, player1.transform.position, poopChaseSpeed * Time.deltaTime);
     //    }
     //}
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player1" && collision.gameObject.tag == "Player2")
+        {
+            iTween.ShakePosition(mainCamera, shakeAmount, 2);
+
+        }
+    }
 }

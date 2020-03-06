@@ -34,6 +34,7 @@ public class ButtonMasher : MonoBehaviour
     public bool player02wins = false;
 
     public ParachuteController ParachuteControllerScript;
+    public GameJuice gameJuiceScript;
 
     void Start()
     {
@@ -85,7 +86,9 @@ public class ButtonMasher : MonoBehaviour
         {
             if (ParachuteControllerScript.m_collected)
             {
-                player01ButtonAmount += 1;
+                gameJuiceScript.itScaledPlayer01 = true;
+               // player01ButtonAmount += 1;
+
             }
             m_timeBetweenMash01 = currentTime - m_lastPressedTime01;
             //Debug.Log($"Time Between Mash Player 01: {m_timeBetweenMash01}");
@@ -95,12 +98,23 @@ public class ButtonMasher : MonoBehaviour
 
             m_lastPressedTime01 = Time.time;
         }
+        else
+        {
+            if (ParachuteControllerScript.m_collected)
+            {
+                gameJuiceScript.itScaledPlayer01 = false;
+                //player01ButtonAmount += 1;
+
+            }
+
+
+        }
 
         if (Input.GetButtonDown("Player2Mash"))
         {
             if (ParachuteControllerScript.m_collected)
             {
-                player02ButtonAmount += 1;
+                gameJuiceScript.itScaledPlayer02 = true;
             }
 
             m_timeBetweenMash02 = currentTime - m_lastPressedTime02;
@@ -109,6 +123,17 @@ public class ButtonMasher : MonoBehaviour
             Player02Gauge.value += ValueIncrementGate - m_timeBetweenMash02;
 
             m_lastPressedTime02 = Time.time;
+        }
+        else
+        {
+            if (ParachuteControllerScript.m_collected)
+            {
+                gameJuiceScript.itScaledPlayer02 = false;
+                //player01ButtonAmount += 1;
+
+            }
+
+
         }
     }
 
