@@ -392,9 +392,10 @@ public class TestPlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player1" && collision.gameObject.tag == "Player2")
+        if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {
-            iTween.ShakePosition(mainCamera, shakeAmount, 2);
+            print("it works");
+            iTween.ShakePosition(mainCamera, shakeAmount, 1);
 
         }
     }

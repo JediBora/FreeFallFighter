@@ -232,6 +232,7 @@ public class ParachuteController : MonoBehaviour
     {
         if (other.gameObject.tag == "Player1" || other.gameObject.tag == "Player2")
         {
+            //iTween.
             m_playerWhoCollected = other.gameObject;
             m_spriteRenderer.color = Color.white;
             m_collected = true;
