@@ -208,11 +208,10 @@ public class ParachuteController : MonoBehaviour
     {
         if (ButtonMasherObject.GetComponent<ButtonMasher>().WinningPlayer != null)
         {
-            ButtonMasherObject.GetComponent<ButtonMasher>().ActivateObject(false, m_playerWhoCollected);
-
-            if (ButtonMasherObject.GetComponent<ButtonMasher>().WinningPlayer == m_playerWhoCollected)
+            if (ButtonMasherObject.GetComponent<ButtonMasher>().WinningPlayer.name == m_playerWhoCollected.name)
             {
                 // WIN ANIMATION
+                
             }
             else
             {
@@ -225,6 +224,8 @@ public class ParachuteController : MonoBehaviour
                 // Set to false so that Movement returns
                 m_collected = false;
             }
+
+            ButtonMasherObject.GetComponent<ButtonMasher>().ActivateObject(false, m_playerWhoCollected);
         }
     }
 
