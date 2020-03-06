@@ -212,8 +212,7 @@ public class ParachuteController : MonoBehaviour
 
             if (ButtonMasherObject.GetComponent<ButtonMasher>().WinningPlayer == m_playerWhoCollected)
             {
-                // WIN CONDITION
-                // Animation
+                // WIN ANIMATION
             }
             else
             {
