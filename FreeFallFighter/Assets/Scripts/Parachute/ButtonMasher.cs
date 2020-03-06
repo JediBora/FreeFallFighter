@@ -88,7 +88,7 @@ public class ButtonMasher : MonoBehaviour
                 player01ButtonAmount += 1;
             }
             m_timeBetweenMash01 = currentTime - m_lastPressedTime01;
-            Debug.Log($"Time Between Mash Player 01: {m_timeBetweenMash01}");
+            //Debug.Log($"Time Between Mash Player 01: {m_timeBetweenMash01}");
 
             Player01Gauge.value += ValueIncrementGate - m_timeBetweenMash01;
             //Debug.Log($"01 Value: {Player01Gauge.value}");
