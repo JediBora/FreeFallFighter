@@ -568,6 +568,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
+        type: 3}
+      propertyPath: startText
+      value: 
+      objectReference: {fileID: 404960938}
+    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
+        type: 3}
+      propertyPath: timeLeft
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
+        type: 3}
+      propertyPath: Player1Meter
+      value: 
+      objectReference: {fileID: 1967375098}
+    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
+        type: 3}
+      propertyPath: Player1MeterNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
+        type: 3}
+      propertyPath: sliderProgress
+      value: 
+      objectReference: {fileID: 586996787}
     - target: {fileID: 1103633402228160295, guid: dad9298748ff1d6498cd7b2885b09905,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -623,31 +648,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
-        type: 3}
-      propertyPath: startText
-      value: 
-      objectReference: {fileID: 404960938}
-    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
-        type: 3}
-      propertyPath: timeLeft
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
-        type: 3}
-      propertyPath: Player1Meter
-      value: 
-      objectReference: {fileID: 1967375098}
-    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
-        type: 3}
-      propertyPath: Player1MeterNumber
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1103633402228160292, guid: dad9298748ff1d6498cd7b2885b09905,
-        type: 3}
-      propertyPath: sliderProgress
-      value: 
-      objectReference: {fileID: 586996787}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dad9298748ff1d6498cd7b2885b09905, type: 3}
 --- !u!1 &942698221
@@ -1061,32 +1061,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1183247151}
   m_CullTransparentMesh: 0
---- !u!1 &1204679899 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1103633402228160293, guid: dad9298748ff1d6498cd7b2885b09905,
-    type: 3}
-  m_PrefabInstance: {fileID: 897700433}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1204679902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1204679899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e47f26478dfc1e45893d159ac20b367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeLeft: 30
-  timestartText: {fileID: 404960938}
-  startText: {fileID: 0}
-  Player1MeterNumber: 0
-  sliderNumber: 0
-  Player1Meter: {fileID: 1967375098}
-  sliderProgress: {fileID: 586996787}
-  TimerOn: 1
 --- !u!1 &1268372571
 GameObject:
   m_ObjectHideFlags: 0
