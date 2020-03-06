@@ -33,7 +33,7 @@ public class ButtonMasher : MonoBehaviour
     public bool player01wins = false;
     public bool player02wins = false;
 
-    public ParachuteController script;
+    public ParachuteController ParachuteControllerScript;
 
     void Start()
     {
@@ -83,7 +83,7 @@ public class ButtonMasher : MonoBehaviour
 
         if (Input.GetButtonDown("Player1Mash"))
         {
-            if (script.m_collected)
+            if (ParachuteControllerScript.m_collected)
             {
                 player01ButtonAmount += 1;
             }
@@ -98,7 +98,7 @@ public class ButtonMasher : MonoBehaviour
 
         if (Input.GetButtonDown("Player2Mash"))
         {
-            if (script.m_collected)
+            if (ParachuteControllerScript.m_collected)
             {
                 player02ButtonAmount += 1;
             }
@@ -117,27 +117,31 @@ public class ButtonMasher : MonoBehaviour
         if (Player01Gauge.value >= 0.98f)
         {
             WinningPlayer = Player01;
+            player01wins = true;
         }
         else if (Player02Gauge.value >= 0.98f)
         {
             WinningPlayer = Player02;
+            player02wins = true;
         }
         else
         {
             WinningPlayer = null;
         }
 
-        if (script.m_collected && Player01 && player01ButtonAmount == PlayerScore)
-        {
-            
-            //print("player 1 wins");
-            player01wins = true;
-        }
-        if (script.m_collected && Player02 && player02ButtonAmount == PlayerScore)
-        {
-            // print("player 2 wins");
-            player02wins = true;
+        // IF COUNTING BUTTON HITS
 
-        }
+        //if (ParachuteControllerScript.m_collected && Player01 && player01ButtonAmount == PlayerScore)
+        //{
+            
+        //    //print("player 1 wins");
+            
+        //}
+        //if (ParachuteControllerScript.m_collected && Player02 && player02ButtonAmount == PlayerScore)
+        //{
+        //    // print("player 2 wins");
+            
+
+        //}
     }
 }

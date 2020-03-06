@@ -8,7 +8,8 @@ public class InGameUI : MonoBehaviour
 {
 
     public float timeLeft = 3.0f;
-    public Text timestartText; 
+    public Text timestartText;
+    public Text startText;
     public float Player1MeterNumber = 0.2f;
     public float sliderNumber = 0f;
     public Scrollbar Player1Meter;
