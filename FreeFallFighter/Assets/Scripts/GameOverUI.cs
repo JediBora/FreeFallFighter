@@ -11,7 +11,7 @@ public class GameOverUI : MonoBehaviour
     public float endPos;
     public Image playAgain;
     public Image quit;
-    public int moveNum = 1500;
+    public int moveNum = 10;
 
     public void Awake()
     {
@@ -33,11 +33,11 @@ public class GameOverUI : MonoBehaviour
     {
         if (endPos <= moveNum)
         {
-            playerWinsGO.transform.Translate(-Vector3.up * 50 * Time.deltaTime);
-            endPos += 10;
+            playerWinsGO.transform.Translate(-Vector3.up * 2 * Time.deltaTime);
+            endPos += 0.1f;
         }
 
-        if(endPos == 1500)
+        if(endPos >= moveNum)
         {
             StartCoroutine(UIDelay());
         }
