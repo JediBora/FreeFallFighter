@@ -70,6 +70,8 @@ public class TestPlayerMovement : MonoBehaviour
 
     //Colors
     public Color greyColor;
+    
+    public Color dark1;
 
     //Colliders
     public Collider2D player1Collider;
@@ -212,18 +214,19 @@ public class TestPlayerMovement : MonoBehaviour
 
 
     }
-    void ChangeCollider1()
-    {
-        player1Collider.isTrigger = false;
-        player1SpriteRenderer.color = greyColor;
 
-    }
-    void ChangeCollider2()
-    {
-        player2Collider.isTrigger = false;
-        player2SpriteRenderer.color = greyColor;
+    //void ChangeCollider1()
+    //{
+    //    player1Collider.isTrigger = false;
+    //    player1SpriteRenderer.color = greyColor;
 
-    }
+    //}
+    //void ChangeCollider2()
+    //{
+    //    player2Collider.isTrigger = false;
+    //    player2SpriteRenderer.color = greyColor;
+
+    //}
 
 
     private void DirectionDirector()
@@ -394,8 +397,20 @@ public class TestPlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {
-            print("it works");
+            //print("it works");
+            GetComponentInChildren<SpriteRenderer>().color = dark1;
             iTween.ShakePosition(mainCamera, shakeAmount, 1);
+
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
+        {
+            //print("it works");
+            GetComponentInChildren<SpriteRenderer>().color = Color.white;
+           
 
         }
     }

@@ -724,6 +724,22 @@ PrefabInstance:
       propertyPath: shakeAmount.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1145073731, guid: f0ef8a8296305194482b80257c00cdf5, type: 3}
+      propertyPath: dark1.r
+      value: 0.7647059
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145073731, guid: f0ef8a8296305194482b80257c00cdf5, type: 3}
+      propertyPath: dark1.g
+      value: 0.65882355
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145073731, guid: f0ef8a8296305194482b80257c00cdf5, type: 3}
+      propertyPath: dark1.b
+      value: 0.6745098
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145073731, guid: f0ef8a8296305194482b80257c00cdf5, type: 3}
+      propertyPath: dark1.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 321646557, guid: f0ef8a8296305194482b80257c00cdf5, type: 3}
       propertyPath: p1script
       value: 
@@ -745,6 +761,14 @@ PrefabInstance:
       propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 315235710, guid: f0ef8a8296305194482b80257c00cdf5, type: 3}
+      propertyPath: buttonMasherScript
+      value: 
+      objectReference: {fileID: 1888030969}
+    - target: {fileID: 315235710, guid: f0ef8a8296305194482b80257c00cdf5, type: 3}
+      propertyPath: parachute
+      value: 
+      objectReference: {fileID: 962742149}
     - target: {fileID: 8962610863916325681, guid: f0ef8a8296305194482b80257c00cdf5,
         type: 3}
       propertyPath: m_IsActive
@@ -1242,6 +1266,62 @@ PrefabInstance:
       propertyPath: shakeAmount.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 564023383, guid: 839e608a38c723848b71272a948f326b, type: 3}
+      propertyPath: dark.r
+      value: 97.702126
+      objectReference: {fileID: 0}
+    - target: {fileID: 564023383, guid: 839e608a38c723848b71272a948f326b, type: 3}
+      propertyPath: dark.g
+      value: 84.17414
+      objectReference: {fileID: 0}
+    - target: {fileID: 564023383, guid: 839e608a38c723848b71272a948f326b, type: 3}
+      propertyPath: dark.b
+      value: 86.17829
+      objectReference: {fileID: 0}
+    - target: {fileID: 564023383, guid: 839e608a38c723848b71272a948f326b, type: 3}
+      propertyPath: greyColor.r
+      value: 0.7647059
+      objectReference: {fileID: 0}
+    - target: {fileID: 564023383, guid: 839e608a38c723848b71272a948f326b, type: 3}
+      propertyPath: greyColor.g
+      value: 0.65882355
+      objectReference: {fileID: 0}
+    - target: {fileID: 564023383, guid: 839e608a38c723848b71272a948f326b, type: 3}
+      propertyPath: greyColor.b
+      value: 0.6745098
+      objectReference: {fileID: 0}
+    - target: {fileID: 564023383, guid: 839e608a38c723848b71272a948f326b, type: 3}
+      propertyPath: dark2.r
+      value: 0.7647059
+      objectReference: {fileID: 0}
+    - target: {fileID: 564023383, guid: 839e608a38c723848b71272a948f326b, type: 3}
+      propertyPath: dark2.g
+      value: 0.65882355
+      objectReference: {fileID: 0}
+    - target: {fileID: 564023383, guid: 839e608a38c723848b71272a948f326b, type: 3}
+      propertyPath: dark2.b
+      value: 0.6745098
+      objectReference: {fileID: 0}
+    - target: {fileID: 564023383, guid: 839e608a38c723848b71272a948f326b, type: 3}
+      propertyPath: dark2.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 564023383, guid: 839e608a38c723848b71272a948f326b, type: 3}
+      propertyPath: dark1.r
+      value: 0.7647059
+      objectReference: {fileID: 0}
+    - target: {fileID: 564023383, guid: 839e608a38c723848b71272a948f326b, type: 3}
+      propertyPath: dark1.g
+      value: 0.65882355
+      objectReference: {fileID: 0}
+    - target: {fileID: 564023383, guid: 839e608a38c723848b71272a948f326b, type: 3}
+      propertyPath: dark1.b
+      value: 0.6745098
+      objectReference: {fileID: 0}
+    - target: {fileID: 564023383, guid: 839e608a38c723848b71272a948f326b, type: 3}
+      propertyPath: dark1.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5386907487255677865, guid: 839e608a38c723848b71272a948f326b,
         type: 3}
       propertyPath: m_BodyType
@@ -1307,6 +1387,21 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 2088691211224312856, guid: 839e608a38c723848b71272a948f326b,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2088691211224312856, guid: 839e608a38c723848b71272a948f326b,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2088691211224312856, guid: 839e608a38c723848b71272a948f326b,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5386907487110661181, guid: 839e608a38c723848b71272a948f326b,
         type: 3}
       propertyPath: p2script
@@ -1327,6 +1422,14 @@ PrefabInstance:
       propertyPath: p2script
       value: 
       objectReference: {fileID: 1145073731}
+    - target: {fileID: 1378614247, guid: 839e608a38c723848b71272a948f326b, type: 3}
+      propertyPath: buttonMasherScript
+      value: 
+      objectReference: {fileID: 1888030969}
+    - target: {fileID: 1378614247, guid: 839e608a38c723848b71272a948f326b, type: 3}
+      propertyPath: parachute
+      value: 
+      objectReference: {fileID: 962742149}
     - target: {fileID: 5386907487110661123, guid: 839e608a38c723848b71272a948f326b,
         type: 3}
       propertyPath: m_IsActive
@@ -1358,6 +1461,12 @@ GameObject:
 --- !u!1 &962742147 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5132196010304115837, guid: 4b206f9232033bd4099e1520aa086c0d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1138705576}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &962742149 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1006141226, guid: 4b206f9232033bd4099e1520aa086c0d,
     type: 3}
   m_PrefabInstance: {fileID: 1138705576}
   m_PrefabAsset: {fileID: 0}

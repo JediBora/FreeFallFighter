@@ -10,10 +10,14 @@ public class PlayerAnimationController : MonoBehaviour
     private int FacingDirH = 0;
     private int FacingDirV = -1;
     private Animator Panim;
+    public Animator parachute;
     private Player1Script Param1;
     private Player2Script Param2;
     private float MoveX;
     private float MoveY;
+
+    public ButtonMasher buttonMasherScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +70,29 @@ public class PlayerAnimationController : MonoBehaviour
 
     void MoveGet(Vector2 input)
     {
+
+        if (buttonMasherScript.player01wins || buttonMasherScript.player02wins)
+        {
+            parachute.SetBool("New Bool", true);
+            print("work");
+
+        }
+        else
+        {
+            parachute.SetBool("New Bool", false);
+
+
+
+        }
+        if (buttonMasherScript.player02wins)
+        {
+            parachute.SetBool("New Bool", true);
+            print("works1");
+        }
+        else
+        {
+            parachute.SetBool("New Bool 0", true);
+        }
         // Horizontal Movement
         if (input.x < 0)
         {

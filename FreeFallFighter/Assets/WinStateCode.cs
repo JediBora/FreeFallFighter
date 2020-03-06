@@ -22,15 +22,15 @@ public class WinStateCode : MonoBehaviour
 
         if (collision.gameObject.tag == "Player1" && ButtonMasherScript.player01wins)
         {
-            SceneManager.LoadScene("GameOver");
-           print("player1 wins");
-            
+            SceneManager.LoadScene("GameOver PLayer 1 Wins");
+            print("player1 wins");
+
         }
 
         if (collision.gameObject.tag == "Player2" && ButtonMasherScript.player02wins)
         {
-            SceneManager.LoadScene("GameOver");
-           print("player2 wins");
+            SceneManager.LoadScene("GameOver PLayer 2 Wins");
+            print("player2 wins");
         }
 
     }

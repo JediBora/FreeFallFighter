@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 396b6b93948c90e46b94c436e73f874c
+guid: 0f308327ad3d5274ea4647071a1ac83f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6110166562528806060
-    second: BackPack_0
+      213: -6839945835076180027
+    second: parachute_spritesheet_2_0
   - first:
-      213: -2821608605172055756
-    second: BackPack_1
+      213: -6453912249588737823
+    second: parachute_spritesheet_2_1
   - first:
-      213: 6464638538575703013
-    second: BackPack_2
+      213: 2232166902589805538
+    second: parachute_spritesheet_2_2
   - first:
-      213: 1424253222325186643
-    second: BackPack_3
+      213: 1990406772146718014
+    second: parachute_spritesheet_2_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -43,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -72,10 +72,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 128
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -84,10 +84,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 128
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -96,10 +96,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: iPhone
-    maxTextureSize: 128
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -108,10 +108,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 128
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -120,10 +120,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 128
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -134,13 +134,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BackPack_0
+      name: parachute_spritesheet_2_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 29
         y: 0
-        width: 32
-        height: 32
+        width: 26
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,20 +148,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3398b181dbe65d946936600559f8109f
-      internalID: 6110166562528806060
+      spriteID: 0d9fb0ab67d45034b892c40153b27cd1
+      internalID: -6839945835076180027
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BackPack_1
+      name: parachute_spritesheet_2_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 114
         y: 0
-        width: 32
-        height: 32
+        width: 26
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,20 +169,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c4e523b42e948a41a91e5e79b272522
-      internalID: -2821608605172055756
+      spriteID: 1c814eae9b71efc4782d2b8e179b4d63
+      internalID: -6453912249588737823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BackPack_2
+      name: parachute_spritesheet_2_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 199
         y: 0
-        width: 32
-        height: 32
+        width: 26
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,20 +190,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d34da8ce257e9d04ebf9b3169191db9c
-      internalID: 6464638538575703013
+      spriteID: 43149d86428d4fc4497f92be048e30df
+      internalID: 2232166902589805538
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BackPack_3
+      name: parachute_spritesheet_2_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 271
         y: 0
-        width: 32
-        height: 32
+        width: 47
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -211,8 +211,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26648d6c52d12d34e9da14a1e3a3b35c
-      internalID: 1424253222325186643
+      spriteID: 1f45553b2740f6e44a2876eba06e9bab
+      internalID: 1990406772146718014
       vertices: []
       indices: 
       edges: []

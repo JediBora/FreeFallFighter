@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Main Menu UI Layout.unity
     guid: dcf4bbfe2d63fe54592953a96767b976
   - enabled: 0
@@ -17,13 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 65694df13f94b3c498e2404331ef4369
-  - enabled: 0
-    path: Assets/Scenes/ButtonMashTest.unity
-    guid: bf49354bfd7db6d468fc29edd346b068
   - enabled: 1
-    path: Assets/Scenes/GameOver.unity
-    guid: 0cbbf36593d22f64092c46819151be48
+    path: Assets/Scenes/GameOver PLayer 1 Wins.unity
+    guid: 59034f2c20f03c24bb5baf4002617fe8
   - enabled: 1
-    path: Assets/Scenes/GameOver2.unity
-    guid: 43fc57eaa627a8545a6f81da87c9ecfc
+    path: Assets/Scenes/GameOver PLayer 2 Wins.unity
+    guid: 0402f3e8813066642b750f426f5670ab
   m_configObjects: {}

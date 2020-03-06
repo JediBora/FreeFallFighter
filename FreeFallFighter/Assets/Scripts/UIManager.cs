@@ -8,19 +8,25 @@ public class UIManager : MonoBehaviour
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("Main");
-    }
 
+        SceneManager.LoadScene("Main");
+
+
+    }
+    private void Update()
+    {
+        if (Input.GetButtonDown("GameStart"))
+        {
+            SceneManager.LoadScene("Main");
+        }
+        if (Input.GetButtonDown("QuitGame"))
+        {
+            Application.Quit();
+        }
+    }
     public void Quit()
     {
         Application.Quit();
-
-        if (Input.GetButtonDown("QuitGame"))
-        {
-
-            Application.Quit();
-        }
-
     }
 
     public void MainMenu()
@@ -35,9 +41,10 @@ public class UIManager : MonoBehaviour
 
     public void GameOver()
     {
+
         SceneManager.LoadScene("GameOver");
 
-      
+
     }
 
 }
