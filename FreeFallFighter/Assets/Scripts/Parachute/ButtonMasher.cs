@@ -32,8 +32,9 @@ public class ButtonMasher : MonoBehaviour
 
     public bool player01wins = false;
     public bool player02wins = false;
-
+    public AudioSource mashsound;
     public ParachuteController ParachuteControllerScript;
+
 
     void Start()
     {
@@ -94,6 +95,7 @@ public class ButtonMasher : MonoBehaviour
             //Debug.Log($"01 Value: {Player01Gauge.value}");
 
             m_lastPressedTime01 = Time.time;
+            mashsound.Play();
         }
 
         if (Input.GetButtonDown("Player2Mash"))
@@ -109,6 +111,8 @@ public class ButtonMasher : MonoBehaviour
             Player02Gauge.value += ValueIncrementGate - m_timeBetweenMash02;
 
             m_lastPressedTime02 = Time.time;
+
+            mashsound.Play();
         }
     }
 
