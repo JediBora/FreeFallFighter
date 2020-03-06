@@ -11,7 +11,9 @@ public class GameOverUI : MonoBehaviour
     public float endPos;
     public Image playAgain;
     public Image quit;
+
     public int moveNum = 10;
+
 
     public void Awake()
     {
@@ -42,23 +44,25 @@ public class GameOverUI : MonoBehaviour
             StartCoroutine(UIDelay());
         }
 
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Debug.Log("Player 1");
-            PlayerWins.text = "Player 1 Wins";
-            PlayerWins.color = Color.red;
-        }
+        //if (Input.GetButtonDown("Fire1"))
+        //{
+        //    Debug.Log("Player 1");
+        //    PlayerWins.text = "Player 1 Wins";
+        //    PlayerWins.color = Color.red;
+        //}
 
-        if (Input.GetButtonDown("Fire2"))
-        {
-            Debug.Log("Player 2");
-            PlayerWins.text = "Player 2 Wins";
-            PlayerWins.color = Color.blue;
-        }
+        //if (Input.GetButtonDown("Fire2"))
+        //{
+        //    Debug.Log("Player 2");
+        //    PlayerWins.text = "Player 2 Wins";
+        //    PlayerWins.color = Color.blue;
+        //}
     }
 
     IEnumerator UIDelay()
     {
+
+        yield return new WaitForSeconds(0.75f);
 
         Color c = playAgain.color;
         c.a = 250;

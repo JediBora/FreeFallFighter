@@ -32,8 +32,10 @@ public class ButtonMasher : MonoBehaviour
 
     public bool player01wins = false;
     public bool player02wins = false;
+    public AudioSource mashsound;
+    public ParachuteController ParachuteControllerScript;
+    public GameJuice gameJuiceScript;
 
-    public ParachuteController script;
 
     void Start()
     {
@@ -83,9 +85,11 @@ public class ButtonMasher : MonoBehaviour
 
         if (Input.GetButtonDown("Player1Mash"))
         {
-            if (script.m_collected)
+            if (ParachuteControllerScript.m_collected)
             {
-                player01ButtonAmount += 1;
+                gameJuiceScript.itScaledPlayer01 = true;
+               // player01ButtonAmount += 1;
+
             }
             m_timeBetweenMash01 = currentTime - m_lastPressedTime01;
             //Debug.Log($"Time Between Mash Player 01: {m_timeBetweenMash01}");
@@ -94,13 +98,25 @@ public class ButtonMasher : MonoBehaviour
             //Debug.Log($"01 Value: {Player01Gauge.value}");
 
             m_lastPressedTime01 = Time.time;
+            mashsound.Play();
+        }
+        else
+        {
+            if (ParachuteControllerScript.m_collected)
+            {
+                gameJuiceScript.itScaledPlayer01 = false;
+                //player01ButtonAmount += 1;
+
+            }
+
+
         }
 
         if (Input.GetButtonDown("Player2Mash"))
         {
-            if (script.m_collected)
+            if (ParachuteControllerScript.m_collected)
             {
-                player02ButtonAmount += 1;
+                gameJuiceScript.itScaledPlayer02 = true;
             }
 
             m_timeBetweenMash02 = currentTime - m_lastPressedTime02;
@@ -109,6 +125,19 @@ public class ButtonMasher : MonoBehaviour
             Player02Gauge.value += ValueIncrementGate - m_timeBetweenMash02;
 
             m_lastPressedTime02 = Time.time;
+
+            mashsound.Play();
+        }
+        else
+        {
+            if (ParachuteControllerScript.m_collected)
+            {
+                gameJuiceScript.itScaledPlayer02 = false;
+                //player01ButtonAmount += 1;
+
+            }
+
+
         }
     }
 
@@ -117,27 +146,31 @@ public class ButtonMasher : MonoBehaviour
         if (Player01Gauge.value >= 0.98f)
         {
             WinningPlayer = Player01;
+            player01wins = true;
         }
         else if (Player02Gauge.value >= 0.98f)
         {
             WinningPlayer = Player02;
+            player02wins = true;
         }
         else
         {
             WinningPlayer = null;
         }
 
-        if (script.m_collected && Player01 && player01ButtonAmount == PlayerScore)
-        {
-            
-            //print("player 1 wins");
-            player01wins = true;
-        }
-        if (script.m_collected && Player02 && player02ButtonAmount == PlayerScore)
-        {
-            // print("player 2 wins");
-            player02wins = true;
+        // IF COUNTING BUTTON HITS
 
-        }
+        //if (ParachuteControllerScript.m_collected && Player01 && player01ButtonAmount == PlayerScore)
+        //{
+            
+        //    //print("player 1 wins");
+            
+        //}
+        //if (ParachuteControllerScript.m_collected && Player02 && player02ButtonAmount == PlayerScore)
+        //{
+        //    // print("player 2 wins");
+            
+
+        //}
     }
 }

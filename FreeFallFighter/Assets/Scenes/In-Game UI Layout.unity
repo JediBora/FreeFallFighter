@@ -1081,6 +1081,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeLeft: 30
   timestartText: {fileID: 404960938}
+  startText: {fileID: 0}
   Player1MeterNumber: 0
   sliderNumber: 0
   Player1Meter: {fileID: 1967375098}
