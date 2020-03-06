@@ -1019,5 +1019,6 @@ MonoBehaviour:
   PlayerWins: {fileID: 664030924}
   playerWinsGO: {fileID: 664030922}
   endPos: 0
-  playAgain: {fileID: 1041798317}
-  quit: {fileID: 483009694}
+  playAgain: {fileID: 1041798320}
+  quit: {fileID: 483009697}
+  moveNum: 1500
